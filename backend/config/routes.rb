@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
+  resources :animes
   resources :lists
   resources :apis
-  resources :tv_shows
   resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
