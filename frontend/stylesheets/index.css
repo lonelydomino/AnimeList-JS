@@ -1,0 +1,451 @@
+body {
+    background: url("../assets/tokyolights1.png") no-repeat center center fixed;  
+    color: white;
+}
+/* Navbar */
+#navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  .navbar-item {
+    float: left;
+  }
+  .navbar-item a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  .navbar-item a:hover:not(.active) {
+    background-color: #111;
+  }
+  .active {
+    background-color: #04AA6D;
+  }
+/* Home */
+#logo {
+    left: 35%;
+    margin-top: 24%;
+}
+
+
+/* Search Form */
+
+
+*
+{
+    position: sticky;
+    outline: none;
+}
+
+html, body
+{
+    height: 100%;
+    min-height: 100%;
+}
+
+body
+{
+    margin: 0;
+}
+
+.tb
+{
+    display: table;
+    width: 100%;
+}
+
+.td
+{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+input, button
+{
+    color: #fff;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: transparent;
+}
+
+#cover
+{
+    position: fixed;
+    top: 30%;
+    left: 0;
+    right: 0;
+    width: 950px;
+    padding: 35px;
+    margin: 83px auto 0 auto;
+    background-color: #253b79;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px #004949, 0 0 0 20px #16004beb;
+    transform: scale(0.6);
+}
+
+form
+{
+    height: 96px;
+}
+
+input[type="text"]
+{
+    width: 100%;
+    height: 96px;
+    font-size: 60px;
+    line-height: 1;
+}
+
+input[type="text"]::placeholder
+{
+    color: #ffffff;
+}
+
+#s-cover
+{
+    width: 1px;
+    padding-left: 35px;
+}
+
+button
+{
+    position: relative;
+    display: block;
+    width: 84px;
+    height: 96px;
+    cursor: pointer;
+}
+
+#s-circle
+{
+    position: relative;
+    top: -8px;
+    left: 0;
+    width: 43px;
+    height: 43px;
+    margin-top: 0;
+    border-width: 15px;
+    border: 15px solid #fff;
+    background-color: transparent;
+    border-radius: 50%;
+    transition: 0.5s ease all;
+}
+
+button span
+{
+    position: absolute;
+    top: 68px;
+    left: 43px;
+    display: block;
+    width: 45px;
+    height: 15px;
+    background-color: transparent;
+    border-radius: 10px;
+    transform: rotateZ(52deg);
+    transition: 0.5s ease all;
+}
+
+button span:before, button span:after
+{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 45px;
+    height: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+    transform: rotateZ(0);
+    transition: 0.5s ease all;
+}
+
+#s-cover:hover #s-circle
+{
+    top: -1px;
+    width: 67px;
+    height: 15px;
+    border-width: 0;
+    background-color: #fff;
+    border-radius: 20px;
+}
+
+#s-cover:hover span
+{
+    top: 50%;
+    left: 56px;
+    width: 25px;
+    margin-top: -9px;
+    transform: rotateZ(0);
+}
+
+#s-cover:hover button span:before
+{
+    bottom: 11px;
+    transform: rotateZ(52deg);
+}
+
+#s-cover:hover button span:after
+{
+    bottom: -11px;
+    transform: rotateZ(-52deg);
+}
+#s-cover:hover button span:before, #s-cover:hover button span:after
+{
+    right: -6px;
+    width: 40px;
+    background-color: #fff;
+}
+
+#ytd-url {
+  display: block;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  padding: 10px 14px;
+  margin: 20px;
+  color: #fff;
+  font-family: Nunito;
+  font-size: 14px;
+  text-decoration: none;
+  background-color: #ff7575;
+  border-radius: 4px;
+  box-shadow: 0 10px 20px -5px rgba(255, 117, 117, 0.86);
+  z-index: 125;
+}
+
+/* lists */
+
+html{
+    background: url("/images/tokyolights1.png") no-repeat center center fixed; 
+    background-size: auto; 
+    background-size: 100% 100%;
+  }
+  
+  body {
+  
+      font-family: verdana;
+      color: #0a043c;
+    }
+    /* Title */
+  #h1lists{
+  
+      text-align: center;
+      color: #ffffff;
+      font-family: verdana;
+  }
+    /* Comment */
+  
+  #list-list {
+      width: 800px;
+      text-align: center;
+      margin: 8px auto;
+      
+  }
+   
+    
+  
+  
+  /* Styles Table */
+  
+  #list-data {
+    border-radius: 16px 16px 16px 16px;
+  width: 100%;
+  border-collapse: collapse;
+  }
+  #td-header {
+    border-top-left-radius: 15px;
+  }
+  #list-data tr:first-child td:first-child{
+    border-top-left-radius: 15px;
+  }
+  
+  #list-data tr:first-child td:last-child {
+    border-top-right-radius: 15px;
+  }
+  
+  #list-data tr:last-child td:first-child {
+    border-bottom-left-radius: 15px;
+  }
+  
+  #list-data tr:last-child td:last-child {
+    border-bottom-right-radius: 15px;
+  }
+  
+  #list-data tr:nth-child(even){
+        background-color: #0f4c75;
+  }
+  
+  #list-data tr:nth-child(odd){
+      background-color: #3282b8;
+  }
+  
+  #list-data th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: center  ;
+      background-color: #4CAF50;
+      color: rgb(12, 105, 0);
+  }
+  
+  #list-data td, #list_data th {
+  padding: 8px;
+  }
+  #th-1 {
+    border-top-left-radius: 15px;
+  }
+  #th-2 {
+    border-top-right-radius: 15px;
+  }
+  
+  #list-data tr:hover {
+      background-color: rgb(56, 159, 255);
+  }
+  
+  #table-anchor {
+      text-decoration: none;
+  }
+  #table-anchor:visited {
+      color: #ffffff;
+  }
+  /* Styles the bottom bar */
+  ul.bot_nav {
+      width:100%;
+      margin:0 auto;
+      padding:0;
+      list-style:none;
+      background-color:#010102;
+      text-align:center;
+      font-family: sans-serif; 
+  }
+  .bot_nav li { 
+      display:inline-block;
+      width:33%;
+      margin:0;
+      padding:0;
+  }
+  .bot_nav p {
+      text-align:center;
+      padding:12px 0 13px 0;
+      margin:0;
+  
+      display:block;
+  }
+  .bot_nav li:hover { 
+      background:#3282b8;
+      
+  }
+  
+  #p1 {
+      font-size: larger;
+      color: white;
+      text-align: center;
+  }
+  td {
+      color: white;
+  }
+    #l {
+        color: white;
+    }
+  /* Add Button */
+  
+  #container {
+      width: 100%;
+      margin: 0 auto;
+      padding: 50px 0 150px 0;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .button1 {
+      display: inline-flex;
+      height: 40px;
+      width: 150px;
+      border: 2px solid #00e25e;
+      background-color: rgb(27, 71, 45);
+      margin: 20px 20px 20px 20px;
+      color: #BFC0C0;
+    border-radius: 222px;
+      text-decoration: none;
+      font-size: 16px;
+   
+      padding: 15px 32px;
+      letter-spacing: 1.5px;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    
+    #button-text {
+      color: #ffffff;
+      font-size: 16px;
+      text-decoration: none;
+      letter-spacing: 1px;
+      text-align: center;
+      z-index: 100; 
+      font-family: Verdana;
+    }
+  
+    #button-anchor {
+      font-family: Verdana;
+      text-decoration: none;
+    }
+  
+    
+    #button-3 {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    
+    #button-3 a {
+      position: relative;
+      transition: all .45s ease-Out;
+    }
+    #button-3 input {
+      position: relative;
+      transition: all .45s ease-Out;
+    }
+    input[type=submit] {
+      padding: 5px 15px;
+      background-color: Transparent;
+      border: 0 none;
+      cursor: pointer;
+      -webkit-border-radius: 5px;
+      border-radius: 5px;
+    }
+    
+    #circle {
+      width: 0%;
+      height: 0%;
+      opacity: 0;
+      line-height: 40px;
+      border-radius: 50%;
+      background: #257c7c;
+      position: absolute;
+      transition: all .5s ease-Out;
+      top: 20px;
+      left: 70px;
+    }
+  
+    
+    #button-3:hover #circle {
+      width: 200%;
+      height: 500%;
+      opacity: 1;
+      top: -70px;
+      left: -70px;
+    }
+    
+    #button-3:hover a {
+      color: #2D3142;
+    }
+    #button-3:hover input {
+      color: #2D3142;
+    }
