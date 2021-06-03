@@ -24,10 +24,20 @@ const renderAnimePage = (animeObj) => {
       <img class="overlay-img" src="${animeDetails["posterImage"]["small"]}" alt="${animeDetails["canonicalTitle"]}_image">
       <h2>${animeDetails["canonicalTitle"]}</h2>
       <p> Description: ${animeDetails["description"]} </p>
+      <select class="box" onchange="addToList(value)">  
+        <option value="none" selected disabled hidden>Add to list</option>
+        <option value="">List 1</option>
+        <option>List 2</option>
+        <option>List 3</option>
+      </select>
     `)
-
     overlayContent.appendChild(newDiv)
 }
+
+function addToList(item) {
+  alert(item + " selected");
+ }
+
 function closeAnimePage() {
   document.getElementById("myOverlay").style.display = "none";
 }
