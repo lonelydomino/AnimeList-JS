@@ -16,7 +16,13 @@
     <li class="navbar-item" style="float:right" ><a href="#">Log Out</a></li>
 </ul>
 <body>
-    <div id="content">
+    <div id="myOverlay" class="overlay">
+        <span class="closebtn" onclick="closeAnimePage()" title="Close Overlay">×</span>
+  <div class="overlay-content">
+    <!-- content goes here -->
+  </div>
+    </div>
+    <div id="content" class="fade">
 
     </div>
     <script src="javascripts/global.js"></script>
