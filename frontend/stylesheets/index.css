@@ -2,6 +2,90 @@ html {
     background: url("../assets/tokyolights1.png") no-repeat center center fixed;  
     /* color: white; */
 }
+/* overlay2 (lists) */
+.list-window {
+  /*   background-color: #bfbfbf; */
+    position: absolute;
+    left:38%;
+    padding: 0px 20px 0px 20px;
+    border-radius: 10px;
+    
+  }
+  /* Position the close button (top right corner) */
+.lists-overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+.lists-overlay {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */   
+  height: 100%;
+  width: 0;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  background-color: rgb(0,0,0); /* Black fallback color */
+  background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+  /* overflow-x: hidden; Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+  /*table*/
+
+
+ tr {
+  border-radius: 20px;
+}
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+
+}
+.styled-table thead tr {
+  border-radius: 20px;
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+}
+.styled-table th,
+.styled-table td {
+  padding: 12px 15px;
+
+}
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+/*   border color */
+
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: grey;
+
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+
+}
+
+.styled-table:nth-child(odd){
+background-color: #4C8BF5;
+    border-radius: 20px;
+
+color: #fff;
+}
+
+
+
+
+
+
 
 /* overlay */
 .overlay {
@@ -47,6 +131,10 @@ html {
   box-shadow: 4px 4px #151515;
   border-color: black;
 }
+/* OVERLAY */
+
+
+
 /* Navbar */
 #navbar {
     list-style-type: none;
