@@ -102,7 +102,7 @@ function renderResults(obj) {
         //whats going on with research?
         contentDiv().innerHTML += `<br><br><div id="no-results">  No results found! </div>
         </br>`
-    }   
+    }   1
 }
 
 function disableScroll() {

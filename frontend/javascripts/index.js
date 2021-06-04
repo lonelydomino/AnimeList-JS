@@ -1,11 +1,9 @@
 const homeButton = () => document.querySelector("#home-button")
 
 const showLists = () => {
-    document.querySelector('body').innerHTML = `
-
-    <div id="myNav" class="lists-overlay">
     
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    document.querySelector("#myNav").innerHTML = `
+      <a href="javascript:void(0)" class="closebtn" onclick="closeLists()">&times;</a>
       <div class="lists-overlay-content">
         <div class="list-window">
           <table class="styled-table">
@@ -43,8 +41,6 @@ const showLists = () => {
           <button>Create new list</button>
         </div>
       </div>
-    
-    </div>
         `
 }
 
@@ -55,11 +51,13 @@ const showHome = () => {
 homeButton().addEventListener("click", showHome)
 
 /* Open when someone clicks on the span element */
-function openNav() {
+/* Open when someone clicks on the span element */
+function openLists() {
     document.getElementById("myNav").style.width = "100%";
+    showLists()
   }
   
   /* Close when someone clicks on the "x" symbol inside the overlay */
-  function closeNav() {
+  function closeLists() {
     document.getElementById("myNav").style.width = "0%";
   } 
