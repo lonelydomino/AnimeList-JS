@@ -645,7 +645,7 @@ button span:before, button span:after
   color: #dc2f55;
 }
 
-.submit {
+.submit-login {
   background-color: #08d;
   border-radius: 12px;
   border: 0;
@@ -660,6 +660,6 @@ button span:before, button span:after
   width: 100%;
 }
 
-.submit:active {
+.submit-login:active {
   background-color: #06b;
 }

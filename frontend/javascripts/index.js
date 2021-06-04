@@ -15,7 +15,7 @@ const closeOverlayWindow = () => {
 
 const showLogin = () => {
     document.querySelector("#myNav").innerHTML = `
-    <div class="form">
+    <div class="form" id="login-form">
       <a href="javascript:void(0)" class="closebtn-login" onclick="closeOverlayWindow()">&times;</a>
       <div class="title">Welcome!</div>
       <div class="subtitle">Log in here</div>
@@ -29,8 +29,9 @@ const showLogin = () => {
         <div class="cut cut-short"></div>
         <label for="password" class="placeholder">Password</>
       </div>
-      <button type="text" class="submit">submit</button>
+      <button type="text" class="submit-login">submit</button>
     </div>`
+    document.querySelector(".submit-login").addEventListener("click", UserApi.fetchUser)
 }
 
 const showLists = () => {
