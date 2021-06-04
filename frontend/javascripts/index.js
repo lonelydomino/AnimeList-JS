@@ -1,13 +1,38 @@
 const homeButton = () => document.querySelector("#home-button")
+
 const openOverlayWindow = (action) => {
     document.getElementById("myNav").style.width = "100%";
     action()
-  }
+}
+
+const showHome = () => {
+    contentDiv().innerHTML = `<img id="logo" src="./assets/animelistlogo6.png">`
+}
   
 const closeOverlayWindow = () => {
     document.getElementById("myNav").style.width = "0%";
-  } 
-  
+} 
+
+const showLogin = () => {
+    document.querySelector("#myNav").innerHTML = `
+    <div class="form">
+      <a href="javascript:void(0)" class="closebtn-login" onclick="closeOverlayWindow()">&times;</a>
+      <div class="title">Welcome!</div>
+      <div class="subtitle">Log in here</div>
+      <div class="input-container ic2">
+        <input id="email" class="input" type="text" placeholder=" " />
+        <div class="cut"></div>
+        <label for="email" class="placeholder">Email</label>
+      </div>
+      <div class="input-container ic2">
+        <input id="password" class="input" type="text" placeholder=" " />
+        <div class="cut cut-short"></div>
+        <label for="password" class="placeholder">Password</>
+      </div>
+      <button type="text" class="submit">submit</button>
+    </div>`
+}
+
 const showLists = () => {
     document.querySelector("#myNav").innerHTML = `
         <a href="javascript:void(0)" class="closebtn" onclick="closeOverlayWindow()">&times;</a>
@@ -50,9 +75,7 @@ const showLists = () => {
         `
 }
 
-const showHome = () => {
-    contentDiv().innerHTML = `<img id="logo" src="./assets/animelistlogo6.png">`
-}
+
 
 
   homeButton().addEventListener("click", showHome)
