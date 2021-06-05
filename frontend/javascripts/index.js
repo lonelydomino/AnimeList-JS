@@ -31,7 +31,7 @@ const showLogin = () => {
       </div>
       <button type="text" class="submit-login">submit</button>
     </div>`
-    document.querySelector(".submit-login").addEventListener("click", UserApi.fetchUser)
+    document.querySelector(".submit-login").addEventListener("click", UserApi.fetchUsers)
 }
 
 const showLists = () => {
