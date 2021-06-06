@@ -1,3 +1,19 @@
 const navbar = () => document.querySelector("#navbar")
 const contentDiv = () => document.querySelector("#content")
 
+const addLoginButton = () => {
+    let li = document.createElement("li")
+        li.className = "navbar-item"
+        li.id = "navbar=login"
+        li.style.cssFloat = "right";
+        li.innerHTML = `<a href="#" onclick="openOverlayWindow(showLogin)" id="navbar-login">Login</a>`
+        document.querySelector("#navbar").appendChild(li)
+}
+const addLogoutButton = () => {
+    let li = document.createElement("li")
+        li.className = "navbar-item"
+        li.style.cssFloat = "right";
+        li.innerHTML = `<a href="#" onclick="UserApi.logout()" id="navbar-logout">Log Out</a>`
+        document.querySelector("#navbar").appendChild(li)
+}
+

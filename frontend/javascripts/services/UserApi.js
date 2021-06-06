@@ -3,41 +3,46 @@ class UserApi {
     static password = ""
     static email = ""
 
+    static getCurrentUserId() {
+        return this.current_user_id
+    }
+
     static fetchUsers() {
         UserApi.password = document.querySelector("#password").value
         UserApi.email = document.querySelector("#email").value
         fetch('http://localhost:3000/users')
         .then(resp => resp.json())
-        .then(json => { json.forEach(element => {
-            if (element.email === UserApi.email && element.password === UserApi.password){
-                UserApi.current_user_id = element.id
-                debugger
-            } else {
-                UserApi.password = ""
-                UserApi.email = ""
-                //Login failed
-            }
-        });  
-        })
-    }
-    static authenticateUser(email, password) {
-
-    }
-
-    static findUser(usersCollection, email, password) {
-        debugger
-        usersCollection.forEach(u => {
-            if(u.username === username && u.password === password){
-                debugger
-                    current_user_id = user.id
-                
+        .then(json => {
+            let found = json.find(element => UserApi.findUser(element.email, element.password)) 
+            if(found){
+                UserApi.current_user_id = found.id
+                document.querySelector("#navbar-login").remove()
+                console.log("Login successful!")
+                addLogoutButton()
+                closeOverlayWindow()
             }
             else {
-                debugger
-                
+                UserApi.password = ""
+                UserApi.email = ""
+                console.log("Login failed!")
+                //Login failed
+                //show failure message
             }
-        });
+        })
     }
 
+    static findUser(tempEmail, tempPassword) {
+        if (tempEmail === UserApi.email && tempPassword === UserApi.password){
+            return true
+         } else{
+            return false
+        }
 
+    }
+      
+    static logout() {
+        UserApi.current_user_id = ""
+        document.querySelector("#navbar-logout").remove()
+        addLoginButton()
+    }
 }
