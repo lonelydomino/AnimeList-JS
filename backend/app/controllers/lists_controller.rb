@@ -15,8 +15,8 @@ class ListsController < ApplicationController
 
   # POST /lists
   def create
+    
     @list = List.new(list_params)
-
     if @list.save
       render json: @list, status: :created, location: @list
     else
@@ -46,6 +46,7 @@ class ListsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def list_params
-      params.fetch(:list, {})
+      # params.fetch(:list, {})
+      params.require(:list).permit(:name, :desc, :user_id)
     end
 end
