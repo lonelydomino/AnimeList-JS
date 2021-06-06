@@ -1,5 +1,9 @@
 const navbar = () => document.querySelector("#navbar")
 const contentDiv = () => document.querySelector("#content")
+const listsForm = () => document.querySelector("#lists-form")
+const newListName = () => document.querySelector("#list-name-input")
+const newListDesc = () => document.querySelector("#list-desc-input")
+
 
 const addLoginButton = () => {
     let li = document.createElement("li")

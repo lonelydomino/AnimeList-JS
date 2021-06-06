@@ -11,7 +11,12 @@ const showHome = () => {
   
 const closeOverlayWindow = () => {
     document.getElementById("myNav").style.width = "0%";
+    document.querySelector("#form-overlay").innerHTML = ""
+
 } 
+const closeNewListsWindow = () => {
+    document.querySelector("#form-overlay").innerHTML = ""
+}
 
 const showLogin = () => {
     document.querySelector("#myNav").innerHTML = `
@@ -70,12 +75,45 @@ const showLists = () => {
                         </tr>
                     </tbody>
                 </table>
-                <button>Create new list</button>
+                <button onclick="showListsForm()" id="lists-form-button">Create new list</button>
             </div>
         </div>
         `
 }
 
+const showListsForm = () => {
+    document.querySelector("#form-overlay").innerHTML = `
+    <form class="form" id="lists-form">
+      <a href="javascript:void(0)" class="closebtn-login" onclick="closeNewListsWindow()">&times;</a>
+      <div class="title">Create a new list</div>
+      <div class="input-container ic2">
+        <input id="list-name-input" class="input" type="text" placeholder=" " />
+        <div class="cut"></div>
+        <label for="list-name-input" class="placeholder">List Name</label>
+      </div>
+      <div class="input-container ic2">
+        <input id="list-desc-input" class="input" type="text" placeholder=" " />
+        <div class="cut cut-short"></div>
+        <label for="list-desc-input" class="placeholder">Description</>
+      </div>
+      <button type="text" class="submit-login">submit</button>
+    </form>`
+    document.querySelector(".submit-login").addEventListener("click", handleSubmitList)
+}
+ const handleSubmitList = () => {
+     const data = {
+         name: newListName().value,
+         desc: newListDesc().value,
+         user_id: UserApi.current_user_id
+     }
+     fetch("http://localhost:3000/lists"), {
+         method: 'POST',
+         headers: {
+             "Content-Type": 'application/json'
+         }
+     }
+     
+ }
 
 
 
