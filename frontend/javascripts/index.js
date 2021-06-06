@@ -40,45 +40,7 @@ const showLogin = () => {
 }
 
 const showLists = () => {
-    document.querySelector("#myNav").innerHTML = `
-        <a href="javascript:void(0)" class="closebtn" onclick="closeOverlayWindow()">&times;</a>
-        <div class="lists-overlay-content">
-            <div class="list-window">
-                <table class="styled-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Action</td>
-                            <td>action animes</td>
-                            <td> X</td>
-                        </tr>
-                        <tr>
-                            <td>Demon Animes</td>
-                            <td>like inuyasha</td>
-                            <td> X</td>
-                        </tr>
-                        <tr>
-                            <td>Cool stuff</td>
-                            <td>my faves</td>
-                            <td>X</td>
-                        </tr>
-                        <tr class="active-row">
-                            <td>Romance </td>
-                            <td>cute stuff</td>
-                            <td> X</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <button onclick="showListsForm()" id="lists-form-button">Create new list</button>
-            </div>
-        </div>
-        `
+    ListApi.fetchLists()
 }
 
 const showListsForm = () => {
@@ -96,23 +58,31 @@ const showListsForm = () => {
         <div class="cut cut-short"></div>
         <label for="list-desc-input" class="placeholder">Description</>
       </div>
-      <button type="text" class="submit-login">submit</button>
+      <input type="submit" value="Create" class="submit-login">
     </form>`
-    document.querySelector(".submit-login").addEventListener("click", handleSubmitList)
+    // document.querySelector(".submit-login").addEventListener("click", handleSubmitList)
+    listsForm().addEventListener("submit", handleSubmitList)
 }
- const handleSubmitList = () => {
+ const handleSubmitList = (event) => {
+     event.preventDefault()
      const data = {
          name: newListName().value,
          desc: newListDesc().value,
-         user_id: UserApi.current_user_id
+         user_id: 1
      }
-     fetch("http://localhost:3000/lists"), {
+     fetch("http://localhost:3000/lists", {
          method: 'POST',
          headers: {
-             "Content-Type": 'application/json'
-         }
-     }
-     
+            'Content-Type': 'application/json'
+         },
+         body: JSON.stringify(data)
+     })
+        .then(resp => resp.json())
+        .then(json => {
+            let list = new List(json)
+            list.render()
+            listsForm().remove()
+    })
  }
 
 

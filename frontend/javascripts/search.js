@@ -1,5 +1,3 @@
-const searchButton = () => document.querySelector("#search-button")
-const searchForm = () => document.querySelector("#search-form")
 
 const fetchAnimeCollection = (query) => {
     fetch(`https://kitsu.io/api/edge/anime?filter[text]=${query}`)
@@ -24,13 +22,15 @@ const renderAnimePage = (animeObj) => {
       <img class="overlay-img" src="${animeDetails["posterImage"]["small"]}" alt="${animeDetails["canonicalTitle"]}_image">
       <h2>${animeDetails["canonicalTitle"]}</h2>
       <p> Description: ${animeDetails["description"]} </p>
-      <select class="box" onchange="addToList(value)">  
-        <option value="none" selected disabled hidden>Add to list</option>
-        <option value="">List 1</option>
-        <option>List 2</option>
-        <option>List 3</option>
-      </select>
     `)
+    if(UserApi.current_user_id != ""){
+      newDiv.innerHTML += `<select class="box" onchange="addToList(value)">  
+          <option value="none" selected disabled hidden>Add to list</option>
+          <option value="">List 1</option>
+          <option>List 2</option>
+          <option>List 3</option>
+        </select>`
+    }
     overlayContent.appendChild(newDiv)
 }
 

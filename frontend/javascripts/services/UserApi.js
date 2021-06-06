@@ -19,6 +19,7 @@ class UserApi {
                 document.querySelector("#navbar-login").remove()
                 console.log("Login successful!")
                 addLogoutButton()
+                addListsButton()
                 closeOverlayWindow()
             }
             else {
@@ -43,6 +44,7 @@ class UserApi {
     static logout() {
         UserApi.current_user_id = ""
         document.querySelector("#navbar-logout").remove()
+        document.querySelector("#navbar-lists").remove()
         addLoginButton()
     }
 }
