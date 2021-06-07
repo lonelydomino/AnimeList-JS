@@ -75,7 +75,7 @@ const showListsForm = () => {
      const data = {
          name: newListName().value,
          desc: newListDesc().value,
-         user_id: 1
+         user_id: UserApi.current_user_id
      }
      fetch("http://localhost:3000/lists", {
          method: 'POST',

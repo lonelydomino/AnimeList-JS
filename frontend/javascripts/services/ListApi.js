@@ -9,11 +9,12 @@ class ListApi {
         .catch(this.handleError)
     }
     static handleError(error) {
-        flash().innerText = error
-        flash().classList.remove("hide")
-        setTimeout(() => {
-            flash().innerText = ""
-            flash().classList.add("hide")
-        }, 5000)
+        
+    }
+    static currentUserLists() {
+        let array = List.all.filter(element => {
+            return element.user_id == UserApi.current_user_id
+        })
+        return array
     }
 }

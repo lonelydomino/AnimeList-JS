@@ -11,7 +11,10 @@ const fetchAnime = (e) => {
     .then(resp => resp.json())
     .then(animeData => renderAnimePage(animeData["data"]))
 }
-
+const addToList = () => {
+    alert(" selected");
+   
+}
 const renderAnimePage = (animeObj) => {
     document.getElementById("myOverlay").style.display = "block";
     let overlayContent = document.querySelector(".overlay-content")
@@ -24,26 +27,29 @@ const renderAnimePage = (animeObj) => {
       <p> Description: ${animeDetails["description"]} </p>
     `)
     if(UserApi.current_user_id != ""){
-        newDiv.innerHTML += `<select class="box" id="list-select-box" onchange="addToList(value)">  
-          <option value="none" selected disabled hidden>Add to list</option>
-        </select>`
+      let select = document.createElement("select")
+      select.className = "box"
+      select.id = "list-select-box"
+      select.onchange = addToList
+      let defaultOption = document.createElement("option")
+      defaultOption.innerHTML = `<option value="none" selected disabled hidden>Add to list</option>`
+      newDiv.append(select)
+      select.appendChild(defaultOption)
+      ListApi.currentUserLists().forEach(element => {
+        let option = document.createElement("option")
+        option.value = element.id
+        option.innerHTML = element.name
         debugger
-        for(let i = 0; i < List.all.length; ++i) {
-          debugger
-          let option = document.createElement("option")
-          option.value = element.id
-          option.innerHTML = element.name
-          listSelectBox().appendChild(option)
-        }
+        select.appendChild(option)
+      });
+       
       
         
     }
     overlayContent.appendChild(newDiv)
 }
 
-function addToList(item) {
-  alert(item + " selected");
- }
+
 
 function closeAnimePage() {
   document.getElementById("myOverlay").style.display = "none";
