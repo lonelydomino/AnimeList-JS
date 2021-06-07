@@ -24,12 +24,20 @@ class List {
     static findOrCreateBy(listObj) {
         return this.findByName(listObj.name) || new List(listObj)
     }
-    static renderUserLists() {
-        // List.all.forEach(element => {
-        //     debugger
-        //     element.render()
-        // });
-        //check users lsits and print
+    static handleDelete = (e) => {
+        fetch(`http://localhost:3000/lists/${e.target.id}`, {
+            method: 'DELETE',
+            headers: {
+                "Content-Type": 'application/json'
+            }
+        })
+        .then(resp => {
+            e.target.parentNode.remove()
+            let list = List.findById(parseInt(e.target.id))
+            let index = List.all.indexOf(list)
+            List.all.splice(index, 1)
+        }
+        )
     }
     render() {
         let tr = document.createElement("tr")
@@ -38,13 +46,17 @@ class List {
         let tdListDesc = document.createElement("td")
         tdListDesc.innerHTML = this.desc
         let tdX = document.createElement("td")
+        tdX.id = this.id
+        tdX.className = "list-delete"
         tdX.innerHTML = "X"
+        tdX.addEventListener("click", List.handleDelete)
         tr.appendChild(tdListName)
         tr.appendChild(tdListDesc)
         tr.appendChild(tdX)
         listTableBody().appendChild(tr)
 
     }
+    
     static renderListTable() {
         document.querySelector("#myNav").innerHTML = `
         <a href="javascript:void(0)" class="closebtn" onclick="closeOverlayWindow()">&times;</a>
@@ -66,6 +78,7 @@ class List {
         </div>
         `
     }
+    
 
 
 }
