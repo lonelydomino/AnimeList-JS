@@ -17,9 +17,19 @@ class List {
     static findById(id) {
         return this.all.find(list => list.id === id)
     }
+    static clearListsTable() {
+        List.all = []
+    }
 
     static findOrCreateBy(listObj) {
         return this.findByName(listObj.name) || new List(listObj)
+    }
+    static renderUserLists() {
+        // List.all.forEach(element => {
+        //     debugger
+        //     element.render()
+        // });
+        //check users lsits and print
     }
     render() {
         let tr = document.createElement("tr")

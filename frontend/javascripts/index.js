@@ -40,7 +40,14 @@ const showLogin = () => {
 }
 
 const showLists = () => {
-    ListApi.fetchLists()
+    //List.clearListsTable()
+    List.renderListTable()
+    const userList = List.all.filter(element => {
+        return element.user_id === UserApi.current_user_id
+    })
+    userList.forEach(element => {
+        element.render()
+    });
 }
 
 const showListsForm = () => {

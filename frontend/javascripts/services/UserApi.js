@@ -18,6 +18,7 @@ class UserApi {
                 UserApi.current_user_id = found.id
                 document.querySelector("#navbar-login").remove()
                 console.log("Login successful!")
+                ListApi.fetchLists()
                 addLogoutButton()
                 addListsButton()
                 closeOverlayWindow()
@@ -43,6 +44,7 @@ class UserApi {
       
     static logout() {
         UserApi.current_user_id = ""
+        List.clearListsTable()
         document.querySelector("#navbar-logout").remove()
         document.querySelector("#navbar-lists").remove()
         addLoginButton()

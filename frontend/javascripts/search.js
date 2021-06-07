@@ -24,12 +24,19 @@ const renderAnimePage = (animeObj) => {
       <p> Description: ${animeDetails["description"]} </p>
     `)
     if(UserApi.current_user_id != ""){
-      newDiv.innerHTML += `<select class="box" onchange="addToList(value)">  
+        newDiv.innerHTML += `<select class="box" id="list-select-box" onchange="addToList(value)">  
           <option value="none" selected disabled hidden>Add to list</option>
-          <option value="">List 1</option>
-          <option>List 2</option>
-          <option>List 3</option>
         </select>`
+        debugger
+        for(let i = 0; i < List.all.length; ++i) {
+          debugger
+          let option = document.createElement("option")
+          option.value = element.id
+          option.innerHTML = element.name
+          listSelectBox().appendChild(option)
+        }
+      
+        
     }
     overlayContent.appendChild(newDiv)
 }
