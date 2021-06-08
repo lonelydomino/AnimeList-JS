@@ -1,5 +1,6 @@
 class ListApi {
-
+    static current_list_id = ""
+    
     static fetchLists() {
         fetch("http://localhost:3000/lists")
         .then(resp => resp.json())

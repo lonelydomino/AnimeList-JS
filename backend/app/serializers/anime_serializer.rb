@@ -1,4 +1,4 @@
 class AnimeSerializer < ActiveModel::Serializer
-  attributes :id
-  belongs_to :list
+  attributes :id, :name, :desc, :image
+  has_many :lists
 end

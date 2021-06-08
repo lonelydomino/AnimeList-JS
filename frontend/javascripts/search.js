@@ -11,10 +11,7 @@ const fetchAnime = (e) => {
     .then(resp => resp.json())
     .then(animeData => renderAnimePage(animeData["data"]))
 }
-const addToList = () => {
-    alert(" selected");
-   
-}
+
 const renderAnimePage = (animeObj) => {
     document.getElementById("myOverlay").style.display = "block";
     let overlayContent = document.querySelector(".overlay-content")
@@ -27,20 +24,24 @@ const renderAnimePage = (animeObj) => {
       <p> Description: ${animeDetails["description"]} </p>
     `)
     if(UserApi.current_user_id != ""){
+      let form = document.createElement("form")
+      form.id = "select-form"
       let select = document.createElement("select")
       select.className = "box"
       select.id = "list-select-box"
-      select.onchange = addToList
+      select.onchange = AnimeApi.addToList(animeDetails)
+      select.dataset.animeApiId = animeObj.id
       let defaultOption = document.createElement("option")
       defaultOption.innerHTML = `<option value="none" selected disabled hidden>Add to list</option>`
-      newDiv.append(select)
+      form.append(select)
+      newDiv.append(form)
       select.appendChild(defaultOption)
       ListApi.currentUserLists().forEach(element => {
-        let option = document.createElement("option")
-        option.value = element.id
-        option.innerHTML = element.name
-        debugger
-        select.appendChild(option)
+      let option = document.createElement("option")
+      option.value = element.id
+      option.innerHTML = element.name
+      // option.onchange = AnimeApi.addToList
+      select.appendChild(option)
       });
        
       
