@@ -15,7 +15,9 @@ class AnimesController < ApplicationController
 
   # POST /animes
   def create
+    list = List.find_by_id(params["list_id"])
     @anime = Anime.new(anime_params)
+    list.animes << @anime
 
     if @anime.save
       render json: @anime, status: :created, location: @anime
@@ -47,7 +49,7 @@ class AnimesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def anime_params
       # params.fetch(:anime, {})
-      params.require(:anime).permit(:name, :desc, :image, :api_id)
+      params.require(:anime).permit(:name, :desc, :image, :api_id, :item, :num)
 
     end
 end

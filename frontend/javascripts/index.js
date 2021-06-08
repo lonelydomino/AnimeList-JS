@@ -1,5 +1,4 @@
 const homeButton = () => document.querySelector("#home-button")
-
 const openOverlayWindow = (action) => {
     document.getElementById("myNav").style.width = "100%";
     action()

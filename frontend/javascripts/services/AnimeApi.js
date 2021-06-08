@@ -2,15 +2,16 @@ class AnimeApi {
 
     static addToList = (animeObj) => {
         return function(){
-        const data = {
-            name: animeObj["canonicalTitle"],
-            desc: animeObj["description"],
-            image: animeObj["posterImage"]["small"],
-            // list_id: event.target.value,
-            api_id: event.target.dataset.animeApiId,
-            // user_id: UserApi.current_user_id 
-        }
-
+            ListApi.current_list_id = parseInt(event.target.value)
+            const data = {
+                name: animeObj["canonicalTitle"],
+                desc: animeObj["description"],
+                image: animeObj["posterImage"]["small"],
+                api_id: event.target.dataset.animeApiId,
+                user_id: UserApi.current_user_id, 
+                list_id: event.target.value,
+            }
+            //how to establish a relationship? with no ids available?
         fetch("http://localhost:3000/animes", {
          method: 'POST',
          headers: {
@@ -22,9 +23,11 @@ class AnimeApi {
         .then(json => {
             let obj = json
             obj.user_id = UserApi.current_user_id
-
-            let anime = new Anime(json)
-            debugger
+            obj.list_id = ListApi.current_list_id
+            // let anime = new Anime(obj)
+            // debugger
+            // Anime.all << Anime.findOrCreateBy(anime)
+            // debugger
         })
         // alert(`${event.target.value} selected, id is : ${event.target.dataset.animeApiId}`);
         // Anime.all << Anime.findOrCreateBy()

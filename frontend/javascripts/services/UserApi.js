@@ -1,5 +1,5 @@
 class UserApi {
-    static current_user_id = ""
+    static current_user_id = 2
     static password = ""
     static email = ""
 
