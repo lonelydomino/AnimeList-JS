@@ -546,7 +546,7 @@ button span:before, button span:after
   border-radius: 20px;
   box-sizing: border-box;
   position: absolute;
-  left: 43%;
+  left: 40%;
   top: 20%;
   height: 500px;
   padding: 20px;
@@ -701,3 +701,36 @@ button span:before, button span:after
 /*////////////////////////////////////////////////////////////////////////////////////*/
 /*////////////////////////////////////////////////////////////////////////////////////*/
 /*////////////////////////////////////////////////////////////////////////////////////*/
+
+.flash-warning {
+  background-color: #ffffff;
+  position: absolute;
+  z-index: 5;
+  color: #d13d44;
+  padding: 5px 12px 5px 12px;
+  width: 20%;
+  text-align: center;
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgb(255, 0, 0);
+  left: 38%;
+  margin-top: 50px;
+}
+
+.flash-notification{
+  background-color: #fff0ae;
+  position: absolute;
+  z-index: 5;
+  color: #fcd31d;
+  padding: 5px 12px 5px 12px;
+  width: 20%;
+  text-align: center;
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgb(255, 195, 30);
+  left: 38%;
+  margin-top: 50px;
+}
+.hide {
+  display: none;
+}

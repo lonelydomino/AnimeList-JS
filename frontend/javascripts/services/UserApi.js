@@ -3,10 +3,30 @@ class UserApi {
     static password = ""
     static email = ""
 
-    static getCurrentUserId() {
+    static getCurrentUserId = () => {
         return this.current_user_id
     }
 
+    static handleLoginFailure = () => {
+        flash().innerText = "Log in failed!"
+        flash().classList.remove("hide")
+        flash().classList.add("flash-warning")
+        setTimeout(() => {
+            flash().innerText = ""
+            flash().classList.remove("flash-warning")
+            flash().classList.add("hide")
+        }, 3000)
+    }
+    static handleLogoutNotification = () => {
+        flash().innerText = "Signed out!"
+        flash().classList.remove("hide")
+        flash().classList.add("flash-notification")
+        setTimeout(() => {
+            flash().innerText = ""
+            flash().classList.remove("flash-notification")
+            flash().classList.add("hide")
+        }, 3000)
+    }
     static fetchUsers() {
         UserApi.password = document.querySelector("#password").value
         UserApi.email = document.querySelector("#email").value
@@ -26,9 +46,8 @@ class UserApi {
             else {
                 UserApi.password = ""
                 UserApi.email = ""
+                UserApi.handleLoginFailure()
                 console.log("Login failed!")
-                //Login failed
-                //show failure message
             }
         })
     }
@@ -47,5 +66,9 @@ class UserApi {
         document.querySelector("#navbar-logout").remove()
         document.querySelector("#navbar-lists").remove()
         addLoginButton()
+        UserApi.handleLogoutNotification()
     }
+
+  
+    
 }

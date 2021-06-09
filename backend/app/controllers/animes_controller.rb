@@ -15,8 +15,8 @@ class AnimesController < ApplicationController
 
   # POST /animes
   def create
-    list = List.find_by_id(params["list_id"])
     @anime = Anime.new(anime_params)
+    list = List.find_by_id(params["list_id"])
     list.animes << @anime
 
     if @anime.save

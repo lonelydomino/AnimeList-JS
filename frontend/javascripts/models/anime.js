@@ -1,13 +1,13 @@
 class Anime {
     static all = []
 
-    constructor({id, name, desc, image, list, user}) {
+    constructor({id, name, desc, image, list_id}) {
+        debugger
         this.name = name
         this.image = image
         this.desc = desc
         this.id = id
-        this.user_id = user.id
-        this.list_id = list.id
+        this.list_id = list_id
         Anime.all.push(this)
     }
 

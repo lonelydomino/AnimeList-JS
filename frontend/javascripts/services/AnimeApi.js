@@ -8,7 +8,7 @@ class AnimeApi {
                 desc: animeObj["description"],
                 image: animeObj["posterImage"]["small"],
                 api_id: event.target.dataset.animeApiId,
-                user_id: UserApi.current_user_id, 
+                // user_id: UserApi.current_user_id, 
                 list_id: event.target.value,
             }
             //how to establish a relationship? with no ids available?
@@ -22,12 +22,9 @@ class AnimeApi {
         .then(resp => resp.json())
         .then(json => {
             let obj = json
-            obj.user_id = UserApi.current_user_id
             obj.list_id = ListApi.current_list_id
-            // let anime = new Anime(obj)
-            // debugger
-            // Anime.all << Anime.findOrCreateBy(anime)
-            // debugger
+            let anime = new Anime(obj)
+            //show added to list flash message
         })
         // alert(`${event.target.value} selected, id is : ${event.target.dataset.animeApiId}`);
         // Anime.all << Anime.findOrCreateBy()
