@@ -8,6 +8,7 @@ const searchButton = () => document.querySelector("#search-button")
 const searchForm = () => document.querySelector("#search-form")
 const listSelectBox = () => document.querySelector("#list-select-box")
 const flash = () => document.querySelector("#flash")
+const animeTableOverlay = () => document.querySelector("#anime-table-overlay")
 
 const addLoginButton = () => {
     let li = document.createElement("li")

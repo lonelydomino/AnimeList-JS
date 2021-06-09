@@ -51,6 +51,7 @@ static fetchAnimes(list_id) {
                     desc: element.desc,
                     image: element.image,
                     api_id: element.api_id,
+                    list_id: list_id
                 }
             Anime.findOrCreateBy(data)
            });
@@ -64,7 +65,20 @@ static fetchAnimes(list_id) {
 
 
 
-    static renderAnimes() {
+    static createAnimeTable() {
+        let table = `
+            <div class="outer-close">
+                <a class="close"><span></span></a>
+            </div>
 
+            <h2 id="anime-table-name">List Name</h2>
+            <ul class="responsive-table">
+                <li class="table-header">
+                    <div class="col col-1">Anime Name</div>
+                    <div class="col col-4"></div>
+                </li>
+            </ul>
+            `
+      document.querySelector("aside").innerHTML += table
     }
 }

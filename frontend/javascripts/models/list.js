@@ -22,7 +22,7 @@ class List {
         List.all = []
     }
 
-    static findOrCreateBy(listObj) {
+    static findOrCreateBy(listObj) { 
         return this.findByName(listObj.name) || new List(listObj)
     }
     static handleDelete = (e) => {
@@ -59,9 +59,9 @@ class List {
         tdListDesc.innerHTML = this.desc
         tdX.innerHTML = "X"
 
-        tdListName.onclick = ListApi.renderList(this.id)
-        tdListDesc.onclick = ListApi.renderList(this.id)
-
+        tdListName.onclick = ListApi.handleAnimeOverlay(this.id)
+        tdListDesc.onclick = ListApi.handleAnimeOverlay(this.id)
+        AnimeApi.fetchAnimes(this.id)
         tdX.className = "list-delete"
         tdListDesc.id = "row-desc-data"
         tdListName.id = "row-name-data"

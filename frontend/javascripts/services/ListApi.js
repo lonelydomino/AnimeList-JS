@@ -20,10 +20,28 @@ class ListApi {
     }
     static renderList = (id) => {
             return function(){
-                let list_id = id
-                AnimeApi.fetchAnimes(list_id)
-            //    AnimeApi.renderAnimes()
                 
+  
+                // ListApi.currentListAnimes(id).forEach(anime => {
+                //     anime.render()
+                // });
+
             }
     }
+
+   
+    static handleAnimeOverlay = () => {
+        return function(){
+            AnimeApi.createAnimeTable()
+            document.querySelector("aside").className = "open"
+            document.querySelector(".outer-close").addEventListener("click", function(){
+                document.querySelector("aside").className = "close"
+                document.querySelector("aside").innerHTML = ""
+            })
+        }
+    }
+  static currentListAnimes(id){
+    let items = Anime.all.filter(element => element.list_id == id)
+    return items
+  }
 }

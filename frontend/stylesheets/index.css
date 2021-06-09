@@ -760,3 +760,121 @@ button span:before, button span:after
 .hide {
   display: none;
 }
+
+/*////////////////////////////////////////////////////////////////////////////////////*/
+/*//////////////////////////////anime Table////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////////////////////*/
+
+#anime-table-overlay {
+  z-index: 6;
+}
+body {
+  font-family: 'lato', sans-serif;
+}
+.anime-table-container {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#anime-table-name {
+  font-size: 26px;
+  margin: 20px 0;
+  text-align: center;
+  color: white;
+ }
+
+.responsive-table li  {
+    border-radius: 3px;
+    padding: 25px 30px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+  }
+  .table-header {
+    background-color: #95A5A6;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .table-row {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+  }
+  .col-1 {
+    flex-basis: 10%;
+  }
+  .col-2 {
+    flex-basis: 40%;
+  }
+  .col-3 {
+    flex-basis: 25%;
+  }
+  .col-4 {
+    flex-basis: 25%;
+  }
+
+  
+/*////////////////////////////////////////////////////////////////////////////////////*/
+/*//////////////////////////////Anime Table Overlay////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////////////////////*/
+
+
+
+
+  aside {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(200deg, #27156E, #6A2A88, #9F4981);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+    z-index: 2;
+  }
+  .open {
+    opacity: 1;
+    visibility: visible;
+  }
+  .close {
+    position: fixed;
+    top: 40px;
+    right: 60px;
+    color: white;
+    z-index: 3;
+    cursor: pointer;
+    font-family: sans-serif;
+  }
+  .close span, .close span:before, .close span:after {
+    border-radius: 4px;
+    height: 5px;
+    width: 35px;
+    background: white;
+    position: absolute;
+    display: block;
+    content: '';
+  }
+  .close span {
+    background: transparent;
+  }
+  .close span:before {
+    transform: rotate(45deg);
+  }
+  .close span:after {
+    transform: rotate(-45deg);
+  }
+  .outer-close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 85px;
+    height: 85px;
+    cursor: pointer;
+  }
+  

@@ -22,5 +22,16 @@ class Anime {
     static findById(id) {
         return this.all.find(anime => anime.id === id)
     }
+    
+    render() {
+        debugger
+        let li = document.createElement("li")
+        li.className = "table-row"
+        li.innerHTML = `
+            <div class="col col-1">${this.name}</div>
+            <div class="col col-4">Delete</div>
+        `
+        document.querySelector(".responsive-table").appendChild(li)
+    }
 
 }
