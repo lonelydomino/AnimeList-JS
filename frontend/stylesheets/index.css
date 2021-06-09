@@ -731,6 +731,21 @@ button span:before, button span:after
   left: 38%;
   margin-top: 50px;
 }
+
+.flash-success {
+  background-color: #7cffc2;
+  position: absolute;
+  z-index: 5;
+  color: #00a53f;
+  padding: 5px 12px 5px 12px;
+  width: 20%;
+  text-align: center;
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgb(0, 82, 44);
+  left: 38%;
+  margin-top: 50px;
+}
 .hide {
   display: none;
 }

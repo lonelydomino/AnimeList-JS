@@ -1,5 +1,14 @@
 class AnimeApi {
-
+    static handleAddSuccess = () => {
+        flash().innerText = "Added to list!"
+        flash().classList.remove("hide")
+        flash().classList.add("flash-success")
+        setTimeout(() => {
+            flash().innerText = ""
+            flash().classList.remove("flash-success")
+            flash().classList.add("hide")
+        }, 3000)
+    } 
     static addToList = (animeObj) => {
         return function(){
             ListApi.current_list_id = parseInt(event.target.value)
@@ -24,6 +33,7 @@ class AnimeApi {
             let obj = json
             obj.list_id = ListApi.current_list_id
             let anime = new Anime(obj)
+            AnimeApi.handleAddSuccess()
             //show added to list flash message
         })
         // alert(`${event.target.value} selected, id is : ${event.target.dataset.animeApiId}`);
