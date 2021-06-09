@@ -34,11 +34,37 @@ class AnimeApi {
             obj.list_id = ListApi.current_list_id
             let anime = new Anime(obj)
             AnimeApi.handleAddSuccess()
-            //show added to list flash message
         })
         // alert(`${event.target.value} selected, id is : ${event.target.dataset.animeApiId}`);
         // Anime.all << Anime.findOrCreateBy()
         //handle form??
     }
+    }
+
+static fetchAnimes(list_id) {
+    fetch(`http://localhost:3000/lists/${list_id}`)
+       .then(resp => resp.json())
+       .then(json => {
+           json.animes.forEach(element => {
+               const data = {
+                    name: element.name,
+                    desc: element.desc,
+                    image: element.image,
+                    api_id: element.api_id,
+                }
+            Anime.findOrCreateBy(data)
+           });
+        })
+        //    let obj = json
+        //    obj.list_id = ListApi.current_list_id
+        //    let anime = new Anime(obj)
+        //    AnimeApi.handleAddSuccess()
+       
+}
+
+
+
+    static renderAnimes() {
+
     }
 }
