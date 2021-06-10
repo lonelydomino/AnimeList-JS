@@ -39,8 +39,9 @@ class UserApi {
                 document.querySelector("#navbar-login").remove()
                 console.log("Login successful!")
                 ListApi.fetchLists()
-                addLogoutButton()
                 addListsButton()
+                addLogoutButton()
+                
                 closeOverlayWindow()
             }
             else {

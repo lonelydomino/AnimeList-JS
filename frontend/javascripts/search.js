@@ -82,7 +82,7 @@ showSearch = () => {
 searchForm().addEventListener("submit", handleSearch)
 }
 
-searchButton().addEventListener("click", showSearch)
+// searchButton().addEventListener("click", showSearch)
 
 const renderAnimeDetails = (e) => {
     fetchAnime(e.target.dataset.id)
