@@ -14,24 +14,29 @@ const animeTiles = () => document.querySelector(".tilesWrap")
 
 
 const addLoginButton = () => {
-    let li = document.createElement("li")
-        li.className = "navbar-item"
-        li.id = "navbar=login"
-        li.style.cssFloat = "right";
-        li.innerHTML = `<a href="#" onclick="openOverlayWindow(showLogin)" id="navbar-login">Login</a>`
-        document.querySelector("#navbar").appendChild(li)
+    let a = document.createElement("a")
+        // a.className = "navbar-item"
+        a.id = "navbar-login"
+        // a.style.cssFloat = "right";
+        a.onclick = openLoginOverlay
+        a.innerHTML = `Login`
+        document.querySelector(".links").appendChild(a)
 }
 const addListsButton = () => {
-    let li = document.createElement("li")
-        li.className = "navbar-item"
-        li.id = "navbar-lists"
-        li.innerHTML = `<a href="#" onclick="openOverlayWindow(showLists)" id="lists-button">Lists</a>`
-        document.querySelector("#navbar").appendChild(li)
+    let a = document.createElement("a")
+        // a.className = "navbar-item"
+        a.id = "navbar-lists"
+        // id="lists-button"
+        a.onclick = openListOverlayWindow
+        a.innerHTML = `Lists`
+        document.querySelector(".links").appendChild(a)
 }
 const addLogoutButton = () => {
-    let li = document.createElement("li")
-        li.className = "navbar-item"
-        li.innerHTML = `<a href="#" onclick="UserApi.logout()" id="navbar-logout">Log Out</a>`
-        document.querySelector("#navbar").appendChild(li)
+    let a = document.createElement("a")
+        // a.className = "navbar-item"
+        a.id = "navbar-logout"
+        a.onclick = UserApi.logout
+        a.innerHTML = `Log Out`
+        document.querySelector(".links").appendChild(a)
 }
 

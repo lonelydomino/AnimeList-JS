@@ -12,7 +12,16 @@
 <body>
    
       <button class="toggle-overlay">Toggle Me</button>
-      
+      <header id="header">
+        <nav class="links" style="--items: 5;">
+            <a href="#">Link 1</a>
+            <!-- <a href="#">Link 2</a> -->
+            <!-- <a href="#">Link 3</a> -->
+            <!-- <a href="#" onclick="openListOverlayWindow()">Lists</a> -->
+            <a href="#" id="navbar-login" onclick="openLoginOverlay(showLogin)">Login</a>
+            <span class="line"></span>
+        </nav>
+     </header>
       
       
         <div class="hero">
@@ -49,14 +58,14 @@
     </div>
     <div id="form-overlay">
     </div>
-    <aside>
+    <aside style="z-index: 20;">
     </aside>
 
     <aside2>
         <div class="outer-close toggle-overlay">
           <a class="close"><span></span></a>
         </div>
-        <nav>
+        <nav id="nav2">
           <ul id="navbar">
             <li class="navbar-item"><a href="#" id="home-button">Home</a></li>
           <li class="navbar-item"><a href="#" >Register</a></li>
@@ -65,7 +74,7 @@
         </nav>
       </aside2>
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <script src="javascripts/global.js"></script>

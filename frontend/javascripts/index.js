@@ -3,10 +3,14 @@ const openOverlayWindow = (action) => {
     document.getElementById("myNav").style.width = "100%";
     action()
 }
-const openLoginOverlay = (action) => {
-  document.getElementById("login-overlay").style.width = "100%";
-  action()
 
+const openListOverlayWindow = () => {
+  showLists()
+}
+
+const openLoginOverlay = () => {
+  document.getElementById("login-overlay").style.width = "100%";
+  showLogin()
 }
 
 const showHome = () => {

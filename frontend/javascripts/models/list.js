@@ -79,7 +79,7 @@ class List {
     }
     
     static renderListTable() {
-        document.querySelector("#myNav").innerHTML = `
+        document.querySelector("#login-overlay").innerHTML = `
         <a href="javascript:void(0)" class="closebtn" onclick="closeOverlayWindow()">&times;</a>
         <div class="lists-overlay-content">
             <div class="list-window">
