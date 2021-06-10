@@ -1,5 +1,5 @@
 class UserApi {
-    static current_user_id = 2
+    static current_user_id = ""
     static password = ""
     static email = ""
 
@@ -42,7 +42,7 @@ class UserApi {
                 addListsButton()
                 addLogoutButton()
                 
-                closeOverlayWindow()
+                document.querySelector("#login-overlay").innerHTML = ""
             }
             else {
                 UserApi.password = ""

@@ -9,15 +9,6 @@
 
 </head>
 
-
-
-
-
-
-
-
-
-
 <body>
    
       <button class="toggle-overlay">Toggle Me</button>
@@ -31,7 +22,7 @@
                   <div class="tb">
                     <div class="td"><input id="search-query" type="text" autocomplete="off" name="search[query]" placeholder="Search" required></div>
                     <div class="td" id="s-cover">
-                      <button id="search-butt" type="submit">
+                      <button id="search-butt" type="submit" onclick="handleSearch()">
                         <div id="s-circle"></div>
                         <span></span>
                       </button>
@@ -52,18 +43,15 @@
 
     <div id="myNav" class="lists-overlay">
     </div>
+    
+    <div id="login-overlay">
+    </div>
+    </div>
     <div id="form-overlay">
     </div>
     <aside>
     </aside>
- <!-- <nav role='navigation' id="mainnav">
-        <ul id="navbar">
-          <li class="navbar-item"><a href="#" id="home-button">Home</a></li>
-          <li class="navbar-item"><a href="#" id="search-button">Search</a></li>
-          <li class="navbar-item" id="navbar-login"><a href="#" onclick="openOverlayWindow(showLogin)" id="login-page-button">Login</a></li>
-        </ul>
-        
-      </nav>   -->
+
     <aside2>
         <div class="outer-close toggle-overlay">
           <a class="close"><span></span></a>
@@ -71,8 +59,8 @@
         <nav>
           <ul id="navbar">
             <li class="navbar-item"><a href="#" id="home-button">Home</a></li>
-          <li class="navbar-item"><a href="#" id="search-button">Search</a></li>
-          <li class="navbar-item" id="navbar-login"><a href="#" onclick="openOverlayWindow(showLogin)" id="login-page-button">Login</a></li>
+          <li class="navbar-item"><a href="#" >Register</a></li>
+          <li class="navbar-item" id="navbar-login"><a href="#" onclick="openLoginOverlay(showLogin)" id="login-page-button">Login</a></li>
           </ul>
         </nav>
       </aside2>
@@ -91,3 +79,5 @@
     <script src="javascripts/search.js"></script>
 </body>
 </html>
+
+<!-- fix login close button and fade out when logged in -->

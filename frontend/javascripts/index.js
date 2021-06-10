@@ -1,8 +1,12 @@
 
 const openOverlayWindow = (action) => {
-  debugger
     document.getElementById("myNav").style.width = "100%";
     action()
+}
+const openLoginOverlay = (action) => {
+  document.getElementById("login-overlay").style.width = "100%";
+  action()
+
 }
 
 const showHome = () => {
@@ -17,11 +21,14 @@ const closeOverlayWindow = () => {
 const closeNewListsWindow = () => {
     document.querySelector("#form-overlay").innerHTML = ""
 }
+const closeLoginWindow = () => {
+  document.querySelector("#login-overlay").innerHTML = ""
+}
 
 const showLogin = () => {
-    document.querySelector("#myNav").innerHTML = `
+    document.querySelector("#login-overlay").innerHTML = `
     <div class="form" id="login-form">
-      <a href="javascript:void(0)" class="closebtn-login" onclick="closeOverlayWindow()">&times;</a>
+      <a href="javascript:void(0)" class="closebtn-login" onclick="closeLoginWindow()">&times;</a>
       <div class="title">Welcome!</div>
       <div class="subtitle">Log in here</div>
       <div class="input-container ic2">

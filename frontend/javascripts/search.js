@@ -2,7 +2,7 @@
 const fetchAnimeCollection = (query) => {
     fetch(`https://kitsu.io/api/edge/anime?filter[text]=${query}`)
     .then(resp => resp.json())
-    .then(json => json.data.map((animeObj) => animeObj))   
+    .then(json => json.data.map(animeObj => animeObj))   
     .then(animeData => renderResults(animeData))
 }
 const fetchAnime = (e) => {
@@ -43,9 +43,7 @@ const renderAnimePage = (animeObj) => {
       // option.onchange = AnimeApi.addToList
       select.appendChild(option)
       });
-       
-      
-        
+
     }
     overlayContent.appendChild(newDiv)
 }
@@ -56,33 +54,12 @@ function closeAnimePage() {
   document.getElementById("myOverlay").style.display = "none";
 }
 
-handleSearch = (e) => {
-    e.preventDefault()
+handleSearch = () => {
+    // e.preventDefault()
     const searchQuery = () => document.querySelector("#search-query")
     fetchAnimeCollection(searchQuery().value)
     //have this convert spaces in the string for the search
 }
-
-showSearch = () => {
-    contentDiv().innerHTML = `
-    <div id="cover">
-    <form id="search-form">
-      <div class="tb">
-        <div class="td"><input id="search-query" type="text" autocomplete="off" name="search[query]" placeholder="Search" required></div>
-        <div class="td" id="s-cover">
-          <button id="search-butt" type="submit">
-            <div id="s-circle"></div>
-            <span></span>
-          </button>
-        </div>
-      </div>
-    </form>
-  </div>
-`
-searchForm().addEventListener("submit", handleSearch)
-}
-
-// searchButton().addEventListener("click", showSearch)
 
 const renderAnimeDetails = (e) => {
     fetchAnime(e.target.dataset.id)
@@ -90,9 +67,13 @@ const renderAnimeDetails = (e) => {
 
 function renderResults(obj) {
     if(obj.length > 0) {
+      // if(animeTiles()){
+      //   debugger
+      //   animeTiles().remove()
+      // }
         let ul = document.createElement("ul")
         ul.className = "tilesWrap"
-        contentDiv().appendChild(ul)
+        
         for(let i = 0; i < obj.length; ++i){
             let data = obj[i]["attributes"]
             let li = document.createElement("li");
@@ -110,13 +91,15 @@ function renderResults(obj) {
                     `
                     
             ul.appendChild(li)
+            contentDiv().appendChild(ul)
+            
             document.querySelector(`button[data-id='${animeID}']`).addEventListener("click", fetchAnime)
         }
 	} else {
         //whats going on with research?
         contentDiv().innerHTML += `<br><br><div id="no-results">  No results found! </div>
         </br>`
-    }   1
+    }   
 }
 
 function disableScroll() {

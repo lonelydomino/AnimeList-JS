@@ -7,7 +7,7 @@ body {
   font-family: verdana;
 }
 #myNav {
-  z-index: 7;
+  z-index: 5;
 }
 /* overlay2 (lists) */
 .list-window {
@@ -659,7 +659,10 @@ button span:before, button span:after
 /*////////////////////////////////////////////////////////////////////////////////////*/
 
 #form-overlay {
-  z-index: 3;
+  width: 100%;
+    position: absolute;
+    top: 100px;
+  z-index: 7;
 }
 #lists-form {
   /* background-color: #15172b;
@@ -695,7 +698,7 @@ button span:before, button span:after
 .flash-warning {
   background-color: #ffffff;
   position: absolute;
-  z-index: 5;
+  z-index: 8;
   color: #d13d44;
   padding: 5px 12px 5px 12px;
   width: 20%;
@@ -704,13 +707,14 @@ button span:before, button span:after
   border-style: solid;
   border-color: rgb(255, 0, 0);
   left: 38%;
+  bottom: 400px;
   margin-top: 50px;
 }
 
 .flash-notification{
   background-color: #fff0ae;
   position: absolute;
-  z-index: 5;
+  z-index: 8 ;
   color: #fcd31d;
   padding: 5px 12px 5px 12px;
   width: 20%;
@@ -719,17 +723,19 @@ button span:before, button span:after
   border-style: solid;
   border-color: rgb(255, 195, 30);
   left: 38%;
+  bottom: 400px;
   margin-top: 50px;
 }
 
 .flash-success {
   background-color: #7cffc2;
   position: absolute;
-  z-index: 5;
+  z-index: 8;
   color: #00a53f;
   padding: 5px 12px 5px 12px;
   width: 20%;
   text-align: center;
+  bottom: 400px;
   border-width: 2px;
   border-style: solid;
   border-color: rgb(0, 82, 44);
@@ -816,7 +822,7 @@ body {
     opacity: 0;
     visibility: hidden;
     transition: all 0.5s ease;
-    z-index: 2;
+    z-index: 5;
   }
   .open {
     opacity: 1;
@@ -877,8 +883,8 @@ html {
 
 
 
-/* 
-html, body, .hero {
+
+/* html, body, .hero {
   height: 100%;
 } */
  
@@ -949,6 +955,7 @@ aside2 {
   z-index: 2;
 }
 .open {
+  z-index: 6;
   opacity: 1;
   font-family: sans-serif;
   visibility: visible;
@@ -1056,4 +1063,19 @@ nav ul li a:before {
   width: 85px;
   height: 85px;
   cursor: pointer;
+}
+
+
+#login-form {
+  bottom: -130px;
+}
+#login-overlay {
+  top: 5%;
+  /* bottom: 234px; */
+  z-index: 7;
+  left: 0%;
+  /* height: 146px; */
+  top: 36%;
+  position: absolute;
+  width: 111px;
 }
