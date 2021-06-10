@@ -791,6 +791,7 @@ body {
     border-radius: 3px;
     padding: 25px 30px;
     display: flex;
+    width: 80%;
     justify-content: space-between;
     margin-bottom: 25px;
   }

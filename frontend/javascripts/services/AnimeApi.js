@@ -65,13 +65,13 @@ static fetchAnimes(list_id) {
 
 
 
-    static createAnimeTable() {
+    static createAnimeTable(listName) {
         let table = `
             <div class="outer-close">
                 <a class="close"><span></span></a>
             </div>
 
-            <h2 id="anime-table-name">List Name</h2>
+            <h2 id="anime-table-name">${listName}</h2>
             <ul class="responsive-table">
                 <li class="table-header">
                     <div class="col col-1">Anime Name</div>
@@ -82,3 +82,5 @@ static fetchAnimes(list_id) {
       document.querySelector("aside").innerHTML += table
     }
 }
+
+//fix display on list anime page!!!!!

@@ -59,6 +59,8 @@ class List {
         tdListDesc.innerHTML = this.desc
         tdX.innerHTML = "X"
 
+        // let callBack = ListApi.handleAnimeOverlay(this.id)
+
         tdListName.onclick = ListApi.handleAnimeOverlay(this.id)
         tdListDesc.onclick = ListApi.handleAnimeOverlay(this.id)
         AnimeApi.fetchAnimes(this.id)

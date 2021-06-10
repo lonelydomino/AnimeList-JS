@@ -22,9 +22,12 @@ class Anime {
     static findById(id) {
         return this.all.find(anime => anime.id === id)
     }
-    
+    static renderListAnimes = (id) => {
+        ListApi.currentListAnimes(id).forEach(anime => {
+            anime.render()
+        });
+    }
     render() {
-        debugger
         let li = document.createElement("li")
         li.className = "table-row"
         li.innerHTML = `

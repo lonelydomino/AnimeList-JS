@@ -18,26 +18,19 @@ class ListApi {
         })
         return array
     }
-    static renderList = (id) => {
-            return function(){
-                
-  
-                // ListApi.currentListAnimes(id).forEach(anime => {
-                //     anime.render()
-                // });
-
-            }
-    }
+    
 
    
     static handleAnimeOverlay = () => {
-        return function(){
-            AnimeApi.createAnimeTable()
+        return function(e){
+            let list_id = parseInt(e.target.dataset.list_id)
+            AnimeApi.createAnimeTable(List.findById(list_id).name)
             document.querySelector("aside").className = "open"
             document.querySelector(".outer-close").addEventListener("click", function(){
                 document.querySelector("aside").className = "close"
                 document.querySelector("aside").innerHTML = ""
             })
+            Anime.renderListAnimes(list_id)
         }
     }
   static currentListAnimes(id){
