@@ -1,5 +1,6 @@
 
 const openOverlayWindow = (action) => {
+  debugger
     document.getElementById("myNav").style.width = "100%";
     action()
 }
@@ -156,29 +157,18 @@ function bubble() {
 init();
 bubble(); 
 
-//navigation (this is my code)
+//navigation
 var animation = 'easeOutCubic';
     delay     = 60;
 
 $(document)
-  .on('click', '.fa-bars', function(){
+  .on('click', '.toggle-overlay', function(){
     var i = 0;
     $('nav').before($('#bubble'));
     $('#bubble').fadeIn();
-    $('#mainnav').find('li').each(function(){
-      var that = $(this);
-      i++;
-      (function(i, that){
-          setTimeout(function(){
-            that
-              .animate(
-                { 'left'   : '0px' }, 
-                { duration : 350, 
-                  easing   : animation })
-              .fadeIn({queue: false});
-          }, delay * i)
-      }(i, that))
-    }); 
+    $('aside2').removeClass('close');
+    $('aside2').addClass('open');
+    
     $('.fa-bars').fadeOut(100,function(){
       $(this)
         .removeClass('fa-bars')
@@ -186,20 +176,24 @@ $(document)
         .fadeIn(); 
     });
   })
-  .on('click', '#bubble, .fa-times', function(){ 
+  .on('click', '#bubble, .outer-close', function(){ 
     $('#bubble').fadeOut();
-    $('#mainnav').find('li')
-      .animate(
-        { 'left'   : '-550px' }, 
-        { duration : 250 })
-      .fadeOut({queue: false});
-    
+    $('aside2').removeClass('open');
+    $('aside2').addClass('close');
     $('.hamb').fadeOut(100, function(){
       $(this)
         .find($('i'))
-        .removeClass('fa-times')
-        .addClass('fa-bars')
         .end()
         .fadeIn();
     });
   })
+
+
+
+    // $(function() {
+    //   $('.toggle-overlay').click(function() {
+    //     $('nav').before($('#bubble'));
+    //     $('#bubble').fadeIn();
+    //     $('aside2').toggleClass('open');
+    //   });
+    // });
