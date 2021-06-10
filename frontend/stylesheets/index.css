@@ -909,8 +909,8 @@ h1 {
   opacity: .9;
   position: fixed;
   display: none;
-  z-index: 1;
-  background: rgba(0, 0, 0, .5);
+  /* z-index: 1; */
+  /* background: rgba(0, 0, 0, .5); */
   
 }
 
@@ -1056,7 +1056,7 @@ aside2 {
   transform: rotate(-45deg);
 }
 .outer-close {
-  z-index:6;
+  z-index:9;
   position: absolute;
   right: 0;
   top: 0;

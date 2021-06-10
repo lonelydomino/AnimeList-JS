@@ -40,3 +40,6 @@ const addLogoutButton = () => {
         document.querySelector(".links").appendChild(a)
 }
 
+const changeVisible = () => {
+    document.querySelector("#bubble").style.display = "flex"
+}
