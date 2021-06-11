@@ -11,8 +11,22 @@ const flash = () => document.querySelector("#flash")
 const animeTableOverlay = () => document.querySelector("#anime-table-overlay")
 const homeButton = () => document.querySelector("#home-button")
 const animeTiles = () => document.querySelector(".tilesWrap")
+const navLinks = () => document.querySelector(".links")
+const navLine = () => document.querySelector(".line")
+const registerButton = () => document.querySelector("#register-button")
 
+const correctNavLine = () => {
+    navLine().remove()
+    let span = document.createElement("span")
+    span.className = "line"
+    navLinks().appendChild(span)
+    // `<span class="line"></span>`
 
+}
+
+const removeRegisterButton = () => {
+    registerButton().remove()
+}
 
 const addListsButton = () => {
     let a = document.createElement("a")

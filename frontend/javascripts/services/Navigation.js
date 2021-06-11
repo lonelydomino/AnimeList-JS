@@ -29,6 +29,15 @@ class Navigation {
     
     } 
 
+    static addRegisterButton = () => {
+        let button = document.createElement("a")
+        button.id = "register-button"
+        button.innerHTML = "Register"
+        navLinks().appendChild(button)
+        // <a href="#" id="register-button">Register</a>
+    
+    }
+    
     static closeNewListsWindow = () => {
         document.querySelector("#form-overlay").innerHTML = ""
     }

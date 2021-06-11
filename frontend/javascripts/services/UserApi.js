@@ -40,8 +40,10 @@ class UserApi {
                 console.log("Login successful!")
                 ListApi.fetchLists()
                 addListsButton()
-                addLogoutButton()
-                
+                addLogoutButton()  
+                navLinks().style = "--items: 2;"
+                removeRegisterButton()
+                correctNavLine()
                 document.querySelector("#login-overlay").innerHTML = ""
             }
             else {
@@ -87,6 +89,8 @@ class UserApi {
         document.querySelector("#navbar-logout").remove()
         document.querySelector("#navbar-lists").remove()
         Navigation.addLoginButton()
+        Navigation.addRegisterButton()
+        correctNavLine()
         UserApi.handleLogoutNotification()
     }
 
