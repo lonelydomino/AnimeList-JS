@@ -175,7 +175,8 @@ var animation = 'easeOutCubic';
 $(document)
   .on('click', '.toggle-overlay', function(){
     var i = 0;
-    $('nav').before($('#bubble'));
+    $('#list-nav').before($('#bubble'));
+    // $('#bubble').css("display", "block")
     $('#bubble').fadeIn();
     $('aside2').removeClass('close');
     $('aside2').addClass('open');

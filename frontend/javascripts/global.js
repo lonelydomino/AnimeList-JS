@@ -27,7 +27,8 @@ const addListsButton = () => {
         // a.className = "navbar-item"
         a.id = "navbar-lists"
         // id="lists-button"
-        a.onclick = openListOverlayWindow
+        a.onclick = changeVisible
+        a.className = "toggle-overlay"
         a.innerHTML = `Lists`
         document.querySelector(".links").appendChild(a)
 }
@@ -41,5 +42,6 @@ const addLogoutButton = () => {
 }
 
 const changeVisible = () => {
+    openListOverlayWindow()
     document.querySelector("#bubble").style.display = "flex"
 }

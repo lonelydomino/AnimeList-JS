@@ -49,7 +49,7 @@ class List {
 
         // tdListName.addEventListener("click", ListApi.renderList)
         // tdListDesc.addEventListener("click", ListApi.renderList)
-        // tdX.addEventListener("click", List.handleDelete)
+        tdX.addEventListener("click", List.handleDelete)
         
         tdListDesc.dataset.list_id = this.id
         tdListName.dataset.list_id = this.id
@@ -79,7 +79,7 @@ class List {
     }
     
     static renderListTable() {
-        document.querySelector("#login-overlay").innerHTML = `
+        document.querySelector("#list-nav").innerHTML = `
         <a href="javascript:void(0)" class="closebtn" onclick="closeOverlayWindow()">&times;</a>
         <div class="lists-overlay-content">
             <div class="list-window">
