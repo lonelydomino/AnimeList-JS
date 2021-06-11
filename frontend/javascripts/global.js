@@ -36,6 +36,8 @@ const addListsButton = () => {
         a.onclick = changeVisible
         a.className = "toggle-overlay"
         a.innerHTML = `Lists`
+        a.style.cursor = "pointer"
+
         document.querySelector(".links").appendChild(a)
 }
 const addLogoutButton = () => {
@@ -43,6 +45,7 @@ const addLogoutButton = () => {
         // a.className = "navbar-item"
         a.id = "navbar-logout"
         a.onclick = UserApi.logout
+        a.style.cursor = "pointer"
         a.innerHTML = `Log Out`
         document.querySelector(".links").appendChild(a)
 }

@@ -7,6 +7,7 @@ class Navigation {
         // a.style.cssFloat = "right";
         a.onclick = Navigation.openLoginOverlay
         a.innerHTML = `Login`
+        a.style.cursor = "pointer"
         document.querySelector(".links").appendChild(a)
     }
 
@@ -33,6 +34,7 @@ class Navigation {
         let button = document.createElement("a")
         button.id = "register-button"
         button.innerHTML = "Register"
+        button.style.cursor = "pointer"
         navLinks().appendChild(button)
         // <a href="#" id="register-button">Register</a>
     
