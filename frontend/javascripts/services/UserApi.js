@@ -60,13 +60,33 @@ class UserApi {
             return false
         }
     }
+    static showLogin = () => {
+        document.querySelector("#login-overlay").innerHTML = `
+        <div class="form" id="login-form">
+          <a href="javascript:void(0)" class="closebtn-login" onclick="closeLoginWindow()">&times;</a>
+          <div class="title">Welcome!</div>
+          <div class="subtitle">Log in here</div>
+          <div class="input-container ic2">
+            <input id="email" class="input" type="text" placeholder=" " />
+            <div class="cut"></div>
+            <label for="email" class="placeholder">Email</label>
+          </div>
+          <div class="input-container ic2">
+            <input id="password" class="input" type="password" placeholder=" " />
+            <div class="cut cut-short"></div>
+            <label for="password" class="placeholder">Password</>
+          </div>
+          <button type="text" class="submit-login">submit</button>
+        </div>`
+        document.querySelector(".submit-login").addEventListener("click", UserApi.fetchUsers)
+    }
       
     static logout() {
         UserApi.current_user_id = ""
         List.clearListsTable()
         document.querySelector("#navbar-logout").remove()
         document.querySelector("#navbar-lists").remove()
-        addLoginButton()
+        Navigation.addLoginButton()
         UserApi.handleLogoutNotification()
     }
 

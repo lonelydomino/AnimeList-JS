@@ -43,7 +43,6 @@ const renderAnimePage = (animeObj) => {
       // option.onchange = AnimeApi.addToList
       select.appendChild(option)
       });
-
     }
     overlayContent.appendChild(newDiv)
 }

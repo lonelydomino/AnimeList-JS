@@ -62,7 +62,7 @@ class List {
         // let callBack = ListApi.handleAnimeOverlay(this.id)
 
         tdListName.onclick = ListApi.handleAnimeOverlay(this.id)
-        tdListDesc.onclick = ListApi.handleAnimeOverlay(this.id)
+        tdListDesc.onclick = () => ListApi.handleAnimeOverlay(this.id)
         AnimeApi.fetchAnimes(this.id)
         tdX.className = "list-delete"
         tdListDesc.id = "row-desc-data"
@@ -80,7 +80,7 @@ class List {
     
     static renderListTable() {
         document.querySelector("#list-nav").innerHTML = `
-        <a href="javascript:void(0)" class="closebtn" onclick="closeOverlayWindow()">&times;</a>
+        <a href="javascript:void(0)" class="closebtn" onclick="Navigation.closeOverlayWindow()">&times;</a>
         <div class="lists-overlay-content">
             <div class="list-window">
                 <table class="styled-table">

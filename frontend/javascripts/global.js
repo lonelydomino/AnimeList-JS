@@ -13,15 +13,7 @@ const homeButton = () => document.querySelector("#home-button")
 const animeTiles = () => document.querySelector(".tilesWrap")
 
 
-const addLoginButton = () => {
-    let a = document.createElement("a")
-        // a.className = "navbar-item"
-        a.id = "navbar-login"
-        // a.style.cssFloat = "right";
-        a.onclick = openLoginOverlay
-        a.innerHTML = `Login`
-        document.querySelector(".links").appendChild(a)
-}
+
 const addListsButton = () => {
     let a = document.createElement("a")
         // a.className = "navbar-item"
@@ -42,6 +34,6 @@ const addLogoutButton = () => {
 }
 
 const changeVisible = () => {
-    openListOverlayWindow()
+    Navigation.openListOverlayWindow()
     document.querySelector("#bubble").style.display = "flex"
 }

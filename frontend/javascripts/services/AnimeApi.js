@@ -64,7 +64,6 @@ static fetchAnimes(list_id) {
 }
 
 
-
     static createAnimeTable(listName) {
         let table = `
             <div class="outer-close">

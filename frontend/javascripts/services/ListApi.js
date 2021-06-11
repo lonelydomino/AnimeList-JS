@@ -21,7 +21,7 @@ class ListApi {
     
 
    
-    static handleAnimeOverlay = () => {
+    static handleAnimeOverlay = (e, id) => {
         return function(e){
             let list_id = parseInt(e.target.dataset.list_id)
             AnimeApi.createAnimeTable(List.findById(list_id).name)
@@ -38,3 +38,4 @@ class ListApi {
     return items
   }
 }
+
