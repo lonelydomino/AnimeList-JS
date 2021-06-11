@@ -63,7 +63,7 @@ class UserApi {
     static showLogin = () => {
         document.querySelector("#login-overlay").innerHTML = `
         <div class="form" id="login-form">
-          <a href="javascript:void(0)" class="closebtn-login" onclick="closeLoginWindow()">&times;</a>
+          <a href="javascript:void(0)" class="closebtn-login" onclick="Navigation.closeLoginWindow()">&times;</a>
           <div class="title">Welcome!</div>
           <div class="subtitle">Log in here</div>
           <div class="input-container ic2">

@@ -11,7 +11,7 @@ class Navigation {
     }
 
     static openListOverlayWindow = () => {
-        showLists()
+        List.showLists()
     }
 
     static openLoginOverlay = () => {
@@ -19,11 +19,22 @@ class Navigation {
         UserApi.showLogin()
     }
 
+    // static openOverlayWindow = (action) => {
+    //     document.getElementById("myNav").style.width = "100%";
+    //     action()
+    // }
     static closeOverlayWindow = () => {
         document.getElementById("myNav").style.width = "0%";
         document.querySelector("#form-overlay").innerHTML = ""
     
     } 
+
+    static closeNewListsWindow = () => {
+        document.querySelector("#form-overlay").innerHTML = ""
+    }
+    static closeLoginWindow = () => {
+      document.querySelector("#login-overlay").innerHTML = ""
+    }
     // static showHome = () => {
     //     contentDiv().innerHTML = `<img id="logo" src="./assets/animelistlogo6.png">`
     // }
