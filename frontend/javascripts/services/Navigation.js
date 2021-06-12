@@ -15,7 +15,7 @@ class Navigation {
   
     static addRegisterButton = () => {
         let button = document.createElement("a")
-        button.id = "navbar-login"
+        button.id = "register-button"
         button.innerHTML = "Register"
         button.style.cursor = "pointer"
         button.onclick = Navigation.openRegistrationOverlay
