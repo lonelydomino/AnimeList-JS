@@ -49,7 +49,7 @@ class AnimesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def anime_params
       # params.fetch(:anime, {})
-      byebug
+      # byebug
       params.permit(:name, :desc, :image, :api_id, :ep_count,:anime)
     end
 end

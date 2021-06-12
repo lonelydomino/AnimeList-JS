@@ -781,13 +781,14 @@ body {
     margin-bottom: 25px;
   }
   .table-header {
-    background-color: #95A5A6;
+    background-color: #000000;
+    color: white;
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 0.03em;
   }
   .table-row {
-    background-color: #ffffff;
+    background-color: #6b6b6b;
     box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
   }
   .col-1 {

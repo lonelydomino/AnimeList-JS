@@ -21,9 +21,9 @@ class ListApi {
     
 
    
-    static handleAnimeOverlay = (e, id) => {
-        return function(e){
-            let list_id = parseInt(e.target.dataset.list_id)
+    static handleAnimeOverlay = () => {
+        // return function(){
+            let list_id = parseInt(event.target.dataset.list_id)
             AnimeApi.createAnimeTable(List.findById(list_id).name)
             document.querySelector("aside").className = "open"
             document.querySelector(".outer-close").addEventListener("click", function(){
@@ -31,7 +31,7 @@ class ListApi {
                 document.querySelector("aside").innerHTML = ""
             })
             Anime.renderListAnimes(list_id)
-        }
+        // }
     }
   static currentListAnimes(id){
     let items = Anime.all.filter(element => element.list_id == id)
