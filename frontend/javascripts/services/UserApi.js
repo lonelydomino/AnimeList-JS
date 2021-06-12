@@ -124,6 +124,40 @@ class UserApi {
         </div>`
         document.querySelector(".submit-login").addEventListener("click", UserApi.createUser)
     }
+    static createUser = () => {
+        event.preventDefault()
+        const data = {
+            last_name: document.querySelector("#last-name").value,
+            first_name: document.querySelector("#first-name").value,
+            password: document.querySelector("#password").value,
+            email: document.querySelector("#email").value
+        }
+        fetch("http://localhost:3000/users", {
+            method: 'POST',
+            headers: {
+               'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(resp => resp.json())
+        .then(json=>{
+            debugger
+            UserApi.current_user_id = json.id
+            document.querySelector("#navbar-login").remove()
+            console.log(`Registation successful! User ID is ${UserApi.current_user_id}`)
+            ListApi.fetchLists()
+            addListsButton()
+            addLogoutButton()  
+            navLinks().style = "--items: 2;"
+            removeRegisterButton()
+            correctNavLine()
+            document.querySelector("#login-overlay").innerHTML = ""
+            
+
+        })
+
+        
+    }
 
   
     
