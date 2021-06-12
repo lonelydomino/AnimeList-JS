@@ -36,12 +36,12 @@ const renderAnimePage = (animeObj) => {
       form.append(select)
       newDiv.append(form)
       select.appendChild(defaultOption)
+      
       ListApi.currentUserLists().forEach(element => {
-      let option = document.createElement("option")
-      option.value = element.id
-      option.innerHTML = element.name
-      // option.onchange = AnimeApi.addToList
-      select.appendChild(option)
+        let option = document.createElement("option")
+        option.value = element.id
+        option.innerHTML = element.name
+        select.appendChild(option)
       });
     }
     overlayContent.appendChild(newDiv)
@@ -54,7 +54,7 @@ function closeAnimePage() {
 }
 
 handleSearch = () => {
-    // e.preventDefault()
+    event.preventDefault()
     const searchQuery = () => document.querySelector("#search-query")
     fetchAnimeCollection(searchQuery().value)
     //have this convert spaces in the string for the search
@@ -66,10 +66,9 @@ const renderAnimeDetails = (e) => {
 
 function renderResults(obj) {
     if(obj.length > 0) {
-      // if(animeTiles()){
-      //   debugger
-      //   animeTiles().remove()
-      // }
+      if(document.querySelector(".tilesWrap")){
+        document.querySelector(".tilesWrap").remove()
+      }
         let ul = document.createElement("ul")
         ul.className = "tilesWrap"
         

@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2021_06_01_044607) do
     t.string "desc"
     t.string "image"
     t.integer "api_id"
+    t.integer "ep_count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

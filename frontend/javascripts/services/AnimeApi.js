@@ -12,15 +12,15 @@ class AnimeApi {
     static addToList = (animeObj) => {
         return function(){
             ListApi.current_list_id = parseInt(event.target.value)
-            const data = {
-                name: animeObj["canonicalTitle"],
-                desc: animeObj["description"],
-                image: animeObj["posterImage"]["small"],
-                api_id: event.target.dataset.animeApiId,
-                // user_id: UserApi.current_user_id, 
-                list_id: event.target.value,
-            }
-            //how to establish a relationship? with no ids available?
+            
+        const data = {
+            name: animeObj["canonicalTitle"],
+            desc: animeObj["description"],
+            image: animeObj["posterImage"]["small"],
+            api_id: event.target.dataset.animeApiId,
+            list_id: event.target.value,
+            ep_count: animeObj["episodeCount"]
+        }
         fetch("http://localhost:3000/animes", {
          method: 'POST',
          headers: {
@@ -28,13 +28,17 @@ class AnimeApi {
          },
          body: JSON.stringify(data)
          })
-        .then(resp => resp.json())
-        .then(json => {
-            let obj = json
-            obj.list_id = ListApi.current_list_id
-            let anime = new Anime(obj)
-            AnimeApi.handleAddSuccess()
-        })
+        // .then(resp => {resp.json()})
+        // .then(json => {
+        //     debugger
+        //     let obj = json
+        //     obj.list_id = ListApi.current_list_id
+        //     let anime = new Anime(obj)
+        //     AnimeApi.handleAddSuccess()
+        // })
+        let anime = new Anime(data)
+        AnimeApi.handleAddSuccess()
+
         // alert(`${event.target.value} selected, id is : ${event.target.dataset.animeApiId}`);
         // Anime.all << Anime.findOrCreateBy()
         //handle form??
@@ -47,11 +51,12 @@ static fetchAnimes(list_id) {
        .then(json => {
            json.animes.forEach(element => {
                const data = {
-                    name: element.name,
-                    desc: element.desc,
-                    image: element.image,
-                    api_id: element.api_id,
-                    list_id: list_id
+                name: element.name,
+                desc: element.desc,
+                ep_count: element.ep_count,
+                image: element.image,
+                api_id: element.api_id,
+                list_id: list_id
                 }
             Anime.findOrCreateBy(data)
            });
@@ -71,16 +76,12 @@ static fetchAnimes(list_id) {
             </div>
 
             <h2 id="anime-table-name">${listName}</h2>
-            <ul class="responsive-table" style="
-            left: 8%;
-            width: 90%;
-            position: absolute;
-        ">
+            <ul class="responsive-table" style="left: 8%;width: 90%;position: absolute;">
                   <li class="table-header">
-                    <div class="col col-1">Job Id</div>
-                    <div class="col col-2">Customer Name</div>
-                    <div class="col col-3">Amount Due</div>
-                    <div class="col col-4">Payment Status</div>
+                    <div class="col col-1">Image</div>
+                    <div class="col col-2">Anime Name</div>
+                    <div class="col col-3">Episodes?</div>
+                    <div class="col col-4">Delete</div>
                   </li>
                   <li class="table-row">
                     <div class="col col-1" data-label="Job Id">42235</div>
@@ -88,25 +89,8 @@ static fetchAnimes(list_id) {
                     <div class="col col-3" data-label="Amount">$350</div>
                     <div class="col col-4" data-label="Payment Status">Pending</div>
                   </li>
-                  <li class="table-row">
-                    <div class="col col-1" data-label="Job Id">42442</div>
-                    <div class="col col-2" data-label="Customer Name">Jennifer Smith</div>
-                    <div class="col col-3" data-label="Amount">$220</div>
-                    <div class="col col-4" data-label="Payment Status">Pending</div>
-                  </li>
-                  <li class="table-row">
-                    <div class="col col-1" data-label="Job Id">42257</div>
-                    <div class="col col-2" data-label="Customer Name">John Smith</div>
-                    <div class="col col-3" data-label="Amount">$341</div>
-                    <div class="col col-4" data-label="Payment Status">Pending</div>
-                  </li>
-                  <li class="table-row">
-                    <div class="col col-1" data-label="Job Id">42311</div>
-                    <div class="col col-2" data-label="Customer Name">John Carpenter</div>
-                    <div class="col col-3" data-label="Amount">$115</div>
-                    <div class="col col-4" data-label="Payment Status">Pending</div>
-                  </li>
-                </ul>
+
+            </ul>
             `
       document.querySelector("aside").innerHTML += table
     }

@@ -5,6 +5,7 @@ class CreateAnimes < ActiveRecord::Migration[6.1]
       t.string :desc
       t.string :image
       t.integer :api_id
+      t.integer :ep_count
       t.timestamps
     end
   end
