@@ -94,6 +94,37 @@ class UserApi {
         UserApi.handleLogoutNotification()
     }
 
+    static showRegistration = () => {
+        document.querySelector("#login-overlay").innerHTML = `
+        <div class="form" id="login-form" style="height: 588px;">
+          <a href="javascript:void(0)" class="closebtn-login" onclick="Navigation.closeLoginWindow()">&times;</a>
+          <div class="title">Welcome!</div>
+          <div class="subtitle">Register here</div>
+          <div class="input-container ic2">
+            <input id="email" class="input" type="text" placeholder=" " value="milo@gmail.com" />
+            <div class="cut"></div>
+            <label for="email" class="placeholder">Email</label>
+          </div>
+          <div class="input-container ic2">
+            <input id="password" class="input" value="123456" type="password" placeholder=" " />
+            <div class="cut cut-short"></div>
+            <label for="password" class="placeholder">Password</>
+          </div>
+          <div class="input-container ic2">
+            <input id="first-name" class="input" value="Bob" type="text" placeholder=" " />
+            <div class="cut cut-short"></div>
+            <label for="last-name" class="placeholder">First Name</>
+          </div>
+          <div class="input-container ic2">
+            <input id="last-name" class="input" value="Johnson" type="text" placeholder=" " />
+            <div class="cut cut-short"></div>
+            <label for="last-name" class="placeholder">Last Name</>
+          </div>
+          <button type="text" class="submit-login">submit</button>
+        </div>`
+        document.querySelector(".submit-login").addEventListener("click", UserApi.createUser)
+    }
+
   
     
 }
