@@ -23,13 +23,16 @@ class ListApi {
    
     static handleAnimeOverlay = () => {
         // return function(){
+            
+            document.querySelector("#lists-window").style.visibility = "hidden"
             let list_id = parseInt(event.target.dataset.list_id)
             AnimeApi.createAnimeTable(List.findById(list_id).name)
             document.querySelector("aside").className = "open"
-            document.querySelector(".outer-close").addEventListener("click", function(){
-                document.querySelector("aside").className = "close"
-                document.querySelector("aside").innerHTML = ""
-            })
+            // document.querySelector(".outer-close2").addEventListener("click", function(){
+            //     document.querySelector("aside").className = "close"
+            //     document.querySelector("aside").innerHTML = ""
+            //     document.querySelector("#lists-window").style.visibility = "visible"
+            // })
             Anime.renderListAnimes(list_id)
         // }
     }

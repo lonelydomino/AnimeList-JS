@@ -36,7 +36,7 @@ class AnimeApi {
         //     let anime = new Anime(obj)
         //     AnimeApi.handleAddSuccess()
         // })
-        let anime = new Anime(data)
+        // let anime = new Anime(data)
         AnimeApi.handleAddSuccess()
 
         // alert(`${event.target.value} selected, id is : ${event.target.dataset.animeApiId}`);
@@ -50,14 +50,16 @@ static fetchAnimes(list_id) {
        .then(resp => resp.json())
        .then(json => {
            json.animes.forEach(element => {
+               
                const data = {
+                id: element.id,
                 name: element.name,
                 desc: element.desc,
                 ep_count: element.ep_count,
                 image: element.image,
                 api_id: element.api_id,
                 list_id: list_id
-                }
+            }
             Anime.findOrCreateBy(data)
            });
         })
@@ -70,10 +72,11 @@ static fetchAnimes(list_id) {
 
 
     static createAnimeTable(listName) {
+        // <div class="outer-close">
+        //         <a class="close"><span></span></a>
+        //     </div>
         let table = `
-            <div class="outer-close">
-                <a class="close"><span></span></a>
-            </div>
+            <div id="anime-list-close-button">X</div>
 
             <h2 id="anime-table-name">${listName}</h2>
             <ul class="responsive-table" style="left: 8%;width: 90%;position: absolute;">
@@ -82,12 +85,6 @@ static fetchAnimes(list_id) {
                     <div class="col col-2">Anime Name</div>
                     <div class="col col-3">Episodes?</div>
                     <div class="col col-4">Delete</div>
-                  </li>
-                  <li class="table-row">
-                    <div class="col col-1" data-label="Job Id">42235</div>
-                    <div class="col col-2" data-label="Customer Name">John Doe</div>
-                    <div class="col col-3" data-label="Amount">$350</div>
-                    <div class="col col-4" data-label="Payment Status">Pending</div>
                   </li>
 
             </ul>

@@ -60,6 +60,7 @@ class List {
         let tdX = document.createElement("div")
         tdX.className = "col col-4"
         tdX.innerHTML = "X"
+        tdX.style.cursor = "pointer"
         tdX.addEventListener("click", List.handleDelete)
         tdX.dataset.list_id = this.id
 
@@ -91,17 +92,18 @@ class List {
     }
 
     static renderListTable() {
+        
         document.querySelector("#list-nav").innerHTML = `
-            <div class="outer-close">
-                <a class="close"><span></span></a>
-            </div>
+        <div class="outer-close">
+        <a class="close"><span></span></a>
+        </div>
 
             <h2 id="anime-table-name">My Lists</h2>
             <ul class="responsive-table" id="lists-table" style="left: 8%;width: 90%;position: absolute;">
                   <li class="table-header">
                     <div class="col col-2">List Name</div>
                     <div class="col col-3">Description</div>
-                    <div class="col col-4">Delete</div>
+                    <div class="col col-4"></div>
                   </li>
                  
             </ul>
@@ -130,9 +132,9 @@ static addNewListsButton = () => {
     addNewListLi.className = "table-row"
     addNewListLi.style.cursor = "pointer"
     addNewListLi.id = "add-lists-button"
-    addNewListLi.style = "background: #283082;color: white;"
+    addNewListLi.style = "background: #283082;color: white;cursor: pointer;"
     addNewListLi.onclick = List.showListsForm
-    addNewListLi.innerHTML = `<div class="list-add" data-label="Customer Name" style="left: 42%; position: relative;">Add new list</div>`
+    addNewListLi.innerHTML = `<div class="list-add" data-label="Customer Name" style="left: 42%; position: relative;cursor: pointer;">Add new list</div>`
     document.querySelector(".responsive-table").appendChild(addNewListLi)
 }
 static showListsForm = () => {
