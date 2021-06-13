@@ -75,8 +75,9 @@ static fetchAnimes(list_id) {
         // <div class="outer-close">
         //         <a class="close"><span></span></a>
         //     </div>
+        document.querySelector("aside").innerHTML = ""
         let table = `
-            <div id="anime-list-close-button">X</div>
+            <div id="anime-list-close-button" onclick="AnimeApi.closeAnimeTable()">X</div>
 
             <h2 id="anime-table-name">${listName}</h2>
             <ul class="responsive-table" style="left: 8%;width: 90%;position: absolute;">
@@ -90,6 +91,10 @@ static fetchAnimes(list_id) {
             </ul>
             `
       document.querySelector("aside").innerHTML += table
+    }
+    static closeAnimeTable(){
+        ListApi.fetchLists()
+        document.querySelector("#animes-window").className = "close"
     }
 }
 

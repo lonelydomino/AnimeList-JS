@@ -42,7 +42,6 @@ class List {
     }
 
     render() {
-
         let li = document.createElement("li")
         li.className = "table-row"
 
@@ -63,36 +62,19 @@ class List {
         tdX.style.cursor = "pointer"
         tdX.addEventListener("click", List.handleDelete)
         tdX.dataset.list_id = this.id
-
-        // tdListName.addEventListener("click", ListApi.renderList)
-        // tdListDesc.addEventListener("click", ListApi.renderList)
-       
         
-        
-        
-        
-
         AnimeApi.fetchAnimes(this.id)
-        // tdListName.onclick = () => ListApi.handleAnimeOverlay
         tdListName.onclick = ListApi.handleAnimeOverlay
-
         tdListDesc.onclick = ListApi.handleAnimeOverlay
-        // tdX.className = "list-delete"
-        // tdListDesc.id = "row-desc-data"
-        // tdListName.id = "row-name-data"
-
-        
-        
-        
+    
         li.appendChild(tdListName)
         li.appendChild(tdListDesc)
         li.appendChild(tdX)
-        document.querySelector(".responsive-table").appendChild(li)
+        document.querySelector("#lists-table").appendChild(li)
 
     }
 
     static renderListTable() {
-        
         document.querySelector("#list-nav").innerHTML = `
         <div class="outer-close">
         <a class="close"><span></span></a>

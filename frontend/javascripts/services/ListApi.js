@@ -7,7 +7,7 @@ class ListApi {
         .then(json => json.forEach(listObj => {
             List.all << List.findOrCreateBy(listObj)
         }))
-        .catch(this.handleError)
+        // .catch(i => {debugger})
     }
     static handleError(error) {
         
@@ -23,8 +23,8 @@ class ListApi {
    
     static handleAnimeOverlay = () => {
         // return function(){
-            
-            document.querySelector("#lists-window").style.visibility = "hidden"
+
+            // document.querySelector("#lists-window").style.visibility = "hidden"
             let list_id = parseInt(event.target.dataset.list_id)
             AnimeApi.createAnimeTable(List.findById(list_id).name)
             document.querySelector("aside").className = "open"

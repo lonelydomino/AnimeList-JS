@@ -85,7 +85,7 @@ class UserApi {
       
     static logout() {
         UserApi.current_user_id = ""
-        List.clearListsTable()
+        // List.clearListsTable()
         document.querySelector("#navbar-logout").remove()
         document.querySelector("#navbar-lists").remove()
         Navigation.addLoginButton()
