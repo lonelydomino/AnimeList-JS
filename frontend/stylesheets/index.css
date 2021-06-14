@@ -1,6 +1,5 @@
 html {
     background: url("../assets/japannight.png") no-repeat center center fixed;  
-    /* color: white; */
 }
 
 body {
@@ -11,7 +10,6 @@ body {
 }
 /* overlay2 (lists) */
 .list-window {
-  /*   background-color: #bfbfbf; */
     position: absolute;
     left:33%;
     margin-top: 15%;
@@ -89,13 +87,10 @@ body {
 }
 .styled-table tbody tr {
   border-bottom: 1px solid #dddddd;
-/*   border color */
-
 }
 
 .styled-table tbody tr:nth-of-type(even) {
   background-color: grey;
-
 }
 
 .styled-table tbody tr:last-of-type {
@@ -109,12 +104,6 @@ background-color: #4C8BF5;
 
 color: #fff;
 }
-
-
-
-
-
-
 
 /* overlay */
 .overlay {
@@ -169,7 +158,6 @@ color: #fff;
 #logo {
     left: 35%;
     z-index: -31;
-    /* margin-top: 24%; */
 }
 
 /* Search Results */
@@ -177,10 +165,6 @@ color: #fff;
 .anime-details {
     color: white;
 }
-
-
-
-
 .tilesWrap {
 	padding: 100;
 	margin: 50px auto;
@@ -311,9 +295,6 @@ background: -webkit-linear-gradient(to right, #0ABFBC, #FC354C);
 background: linear-gradient(to right, #0ABFBC, #FC354C);
 }
 
-
-
-
 #results_anchor {
 	text-decoration:  none;
 	color: white;
@@ -337,8 +318,6 @@ background: linear-gradient(to right, #0ABFBC, #FC354C);
 	max-width: 100%;
 }
 /* Search Form */
-
-
 
 *
 {
@@ -515,9 +494,6 @@ button span:before, button span:after
   z-index: 125;
 }
 
-
-   
-    
  /*////////////////////////////////////////////////////////////////////////////// 
  /* Form */
  
@@ -665,15 +641,6 @@ button span:before, button span:after
   z-index: 7;
 }
 #lists-form {
-  /* background-color: #15172b;
-  border-radius: 20px;
-  box-sizing: border-box;
-  position: absolute;
-  
-  top: 20%;
-  height: 500px;
-  padding: 20px;
-  width: 320px; */
   height: 360px;
   left: 30%;
   width: 40%;
@@ -813,16 +780,13 @@ body {
 /*////////////////////////////////////////////////////////////////////////////////////*/
 /*////////////////////////////////////////////////////////////////////////////////////*/
 
-
-
-
   aside {
     position: fixed;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    background: linear-gradient(200deg, #27156E, #6A2A88, #9F4981);
+    background: url("../assets/tokyolights1.png");
     opacity: 0;
     visibility: hidden;
     transition: all 0.5s ease;
@@ -884,15 +848,6 @@ html {
   font-family: 'average', serif;
 }
 
-
-
-
-
-/* html, body, .hero {
-  height: 100%;
-} */
- 
-
 h1 {
   font-size: 5em;
   text-align: center;
@@ -912,10 +867,7 @@ h1 {
   height: 100%;
   opacity: .9;
   position: fixed;
-  display: none;
-  /* z-index: 1; */
-  /* background: rgba(0, 0, 0, .5); */
-  
+  display: none; 
 }
 
 /* ///////////// */
@@ -1022,9 +974,7 @@ aside2 {
 .toggle-overlay {
   padding: 15px 40px;
   background: transparent;
-  /* border: 1px solid rgba(255, 255, 255, 0.4); */
   color: white;
-  /* border-radius: 8px; */
   transition: all 0.5s ease;
 }
 
@@ -1069,16 +1019,13 @@ aside2 {
   cursor: pointer;
 }
 
-
 #login-form {
   bottom: -130px;
 }
 #login-overlay {
   top: 5%;
-  /* bottom: 234px; */
   z-index: 7;
   left: 0%;
-  /* height: 146px; */
   top: 36%;
   position: absolute;
   width: 111px;
@@ -1093,12 +1040,6 @@ aside2 {
   z-index: 23;
   padding: 20px;
 }
-
-
-
-
-
-
 
 
 /*  */

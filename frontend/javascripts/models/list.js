@@ -91,11 +91,7 @@ class List {
                  
             </ul>
             
-            `
-        //     <li class="table-row" id="lists-form-button" onclick="List.showListsForm()">
-        //     <div class="list-delete" data-label="Customer Name" style="left: 42%; position: relative;">Add new list</div>
-        //   </li>
-           
+            ` 
     }
 
 
@@ -158,14 +154,23 @@ static handleSubmitList = (event) => {
         .then(resp => resp.json())
         .then(json => {
             let list = new List(json)
-            
+            List.handleListAddSuccess()
             document.querySelector("#add-lists-button").remove()
             list.render()
             List.addNewListsButton()
             listsForm().remove()
     })
 }
-    
+static handleListAddSuccess = () => {
+    flash().innerText = "List created!"
+    flash().classList.remove("hide")
+    flash().classList.add("flash-success")
+    setTimeout(() => {
+        flash().innerText = ""
+        flash().classList.remove("flash-success")
+        flash().classList.add("hide")
+    }, 3000)
+}
 
 
 }

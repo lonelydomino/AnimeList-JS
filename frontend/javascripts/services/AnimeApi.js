@@ -72,9 +72,6 @@ static fetchAnimes(list_id) {
 
 
     static createAnimeTable(listName) {
-        // <div class="outer-close">
-        //         <a class="close"><span></span></a>
-        //     </div>
         document.querySelector("aside").innerHTML = ""
         let table = `
             <div id="anime-list-close-button" onclick="AnimeApi.closeAnimeTable()">X</div>
@@ -82,10 +79,10 @@ static fetchAnimes(list_id) {
             <h2 id="anime-table-name">${listName}</h2>
             <ul class="responsive-table" style="left: 8%;width: 90%;position: absolute;">
                   <li class="table-header">
-                    <div class="col col-1">Image</div>
+                    <div class="col col-1"></div>
                     <div class="col col-2">Anime Name</div>
-                    <div class="col col-3">Episodes?</div>
-                    <div class="col col-4">Delete</div>
+                    <div class="col col-3">Episodes</div>
+                    <div class="col col-4"></div>
                   </li>
 
             </ul>
@@ -97,5 +94,3 @@ static fetchAnimes(list_id) {
         document.querySelector("#animes-window").className = "close"
     }
 }
-
-//fix display on list anime page!!!!!

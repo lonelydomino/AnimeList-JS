@@ -32,16 +32,16 @@ class Anime {
     render() {
         let li = document.createElement("li")
         li.className = "table-row"
+        debugger
         li.innerHTML = `
             <div class="col col-1"><img src="${this.image}" width="50" height="60"></div>
             <div class="col col-2">${this.name}</div>
             <div class="col col-3">${this.ep_count}</div>
-            <div class="col col-4" onclick="Anime.handleDelete(event)" data-anime-id="${this.id}" style="cursor: pointer;">Delete</div>
+            <div class="col col-4" onclick="Anime.handleDelete(event)" data-anime-id="${this.id}" style="color:red; cursor: pointer;">X</div>
         `
         document.querySelector(".responsive-table").appendChild(li)
     }
     static handleDelete = (e) => {
-        // debugger
         fetch(`http://localhost:3000/animes/${e.target.dataset.animeId}`, {
             method: 'DELETE',
             headers: {

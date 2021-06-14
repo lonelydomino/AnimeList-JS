@@ -6,6 +6,7 @@ const fetchAnimeCollection = (query) => {
     .then(animeData => renderResults(animeData))
 }
 const fetchAnime = (e) => {
+  debugger
     let animeID = e.target.dataset.id
     fetch(`https://kitsu.io/api/edge/anime/${animeID}`)
     .then(resp => resp.json())
@@ -94,7 +95,6 @@ function renderResults(obj) {
             document.querySelector(`button[data-id='${animeID}']`).addEventListener("click", fetchAnime)
         }
 	} else {
-        //whats going on with research?
         contentDiv().innerHTML += `<br><br><div id="no-results">  No results found! </div>
         </br>`
     }   

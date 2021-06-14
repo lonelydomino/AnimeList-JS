@@ -17,6 +17,16 @@ class UserApi {
             flash().classList.add("hide")
         }, 3000)
     }
+    static handleLoginSuccess = () => {
+        flash().innerText = "Log in successful!"
+        flash().classList.remove("hide")
+        flash().classList.add("flash-success")
+        setTimeout(() => {
+            flash().innerText = ""
+            flash().classList.remove("flash-success")
+            flash().classList.add("hide")
+        }, 3000)
+    }
     static handleLogoutNotification = () => {
         flash().innerText = "Signed out!"
         flash().classList.remove("hide")
@@ -41,6 +51,7 @@ class UserApi {
                 ListApi.fetchLists()
                 addListsButton()
                 addLogoutButton()  
+                UserApi.handleLoginSuccess()
                 navLinks().style = "--items: 2;"
                 removeRegisterButton()
                 correctNavLine()
