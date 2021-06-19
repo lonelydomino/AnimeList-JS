@@ -32,7 +32,6 @@ class Anime {
     render() {
         let li = document.createElement("li")
         li.className = "table-row"
-        debugger
         li.innerHTML = `
             <div class="col col-1"><img src="${this.image}" width="50" height="60"></div>
             <div class="col col-2">${this.name}</div>
@@ -52,7 +51,6 @@ class Anime {
             e.target.parentElement.remove()
             let anime = Anime.findById(parseInt(e.target.dataset.animeId))
             let index = Anime.all.indexOf(anime)
-            debugger
             Anime.all.splice(index, 1)
         }
         )

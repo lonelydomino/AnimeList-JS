@@ -103,6 +103,7 @@ static showLists = () => {
     userList.forEach(element => {
         element.render()
     });
+    debugger
     List.addNewListsButton()
 }
 
