@@ -6,7 +6,6 @@ const fetchAnimeCollection = (query) => {
     .then(animeData => renderResults(animeData))
 }
 const fetchAnime = (e) => {
-  debugger
     let animeID = e.target.dataset.id
     fetch(`https://kitsu.io/api/edge/anime/${animeID}`)
     .then(resp => resp.json())
@@ -46,15 +45,17 @@ const renderAnimePage = (animeObj) => {
       });
     }
     overlayContent.appendChild(newDiv)
+    disableScroll()
 }
 
 
 
-function closeAnimePage() {
+const closeAnimePage = () => {
   document.getElementById("myOverlay").style.display = "none";
+  enableScroll()
 }
 
-handleSearch = () => {
+const handleSearch = () => {
     event.preventDefault()
     const searchQuery = () => document.querySelector("#search-query")
     fetchAnimeCollection(searchQuery().value)
@@ -65,7 +66,7 @@ const renderAnimeDetails = (e) => {
     fetchAnime(e.target.dataset.id)
 }  
 
-function renderResults(obj) {
+const renderResults = (obj) => {
     if(obj.length > 0) {
       if(document.querySelector(".tilesWrap")){
         document.querySelector(".tilesWrap").remove()
@@ -100,16 +101,3 @@ function renderResults(obj) {
     }   
 }
 
-function disableScroll() {
-  // Get the current page scroll position
-  scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
-
-      // if any scroll is attempted, set this to the previous value
-      window.onscroll = function() {
-          window.scrollTo(scrollLeft, scrollTop);
-      };
-}
-function enableScroll() {
-  window.onscroll = function() {};
-}

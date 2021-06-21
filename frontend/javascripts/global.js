@@ -54,3 +54,38 @@ const changeVisible = () => {
     Navigation.openListOverlayWindow()
     document.querySelector("#bubble").style.display = "flex"
 }
+
+const keys = {37: 1, 38: 1, 39: 1, 40: 1};
+const preventDefaultScrollingWheel = (e) => {
+    e.preventDefault();
+}
+  
+const preventDefaultForScrollKeys = (e) =>{
+    if (keys[e.keyCode]) {
+      preventDefaultScrollingWheel(e);
+      return false;
+    }
+  }
+  
+  // modern Chrome requires { passive: false } when adding event
+  var supportsPassive = false;
+  try {
+    window.addEventListener("test", null, Object.defineProperty({}, 'passive', {
+      get: function () { supportsPassive = true; } 
+    }));
+  } catch(e) {}
+  
+  const wheelOpt = supportsPassive ? { passive: false } : false;
+  const wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
+  
+  // call this to Disable
+  const disableScroll = () => {
+    window.addEventListener(wheelEvent, preventDefaultScrollingWheel, wheelOpt); // modern desktop
+    window.addEventListener('keydown', preventDefaultForScrollKeys, false);
+  }
+  
+  // call this to Enable
+  const enableScroll = () => {
+    window.removeEventListener(wheelEvent, preventDefaultScrollingWheel, wheelOpt); 
+    window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
+  }
