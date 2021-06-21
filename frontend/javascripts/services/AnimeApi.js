@@ -1,4 +1,5 @@
 class AnimeApi {
+
     static handleAddSuccess = () => {
         flash().innerText = "Added to list!"
         flash().classList.remove("hide")
@@ -9,6 +10,7 @@ class AnimeApi {
             flash().classList.add("hide")
         }, 3000)
     } 
+
     static addToList = (animeObj) => {
         return function(){
             ListApi.current_list_id = parseInt(event.target.value)
@@ -28,20 +30,10 @@ class AnimeApi {
          },
          body: JSON.stringify(data)
          })
-        // .then(resp => {resp.json()})
-        // .then(json => {
-        //     debugger
-        //     let obj = json
-        //     obj.list_id = ListApi.current_list_id
-        //     let anime = new Anime(obj)
-        //     AnimeApi.handleAddSuccess()
-        // })
-        // let anime = new Anime(data)
-        AnimeApi.handleAddSuccess()
-
-        // alert(`${event.target.value} selected, id is : ${event.target.dataset.animeApiId}`);
-        // Anime.all << Anime.findOrCreateBy()
-        //handle form??
+        .then((resp) => resp.json().then((body) => body))
+        .then(json => {
+            AnimeApi.handleAddSuccess()
+        })
     }
     }
 
@@ -63,10 +55,6 @@ static fetchAnimes(list_id) {
             Anime.findOrCreateBy(data)
            });
         })
-        //    let obj = json
-        //    obj.list_id = ListApi.current_list_id
-        //    let anime = new Anime(obj)
-        //    AnimeApi.handleAddSuccess()
        
 }
 
