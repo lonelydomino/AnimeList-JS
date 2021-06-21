@@ -27,6 +27,16 @@ class UserApi {
             flash().classList.add("hide")
         }, 3000)
     }
+    static handleRegistrationSuccess = () => {
+        flash().innerText = "Registration successful!"
+        flash().classList.remove("hide")
+        flash().classList.add("flash-success")
+        setTimeout(() => {
+            flash().innerText = ""
+            flash().classList.remove("flash-success")
+            flash().classList.add("hide")
+        }, 3000)
+    }
     static handleLogoutNotification = () => {
         flash().innerText = "Signed out!"
         flash().classList.remove("hide")
@@ -49,7 +59,6 @@ class UserApi {
         .catch(this.handleError)
     }
     static handleError(error) {
-        debugger
         flash().innerText = error
         flash().classList.remove("hide")
         flash().classList.add("flash-warning")
@@ -165,15 +174,14 @@ class UserApi {
             body: JSON.stringify(data)
         })
         .then(resp => {
-            if (resp.ok) {
-                return resp.json();
+            if (!resp.ok) {
+                return Promise.reject(resp)
+
             } else {
-                debugger
-                return Promise.reject(resp.status);
+                return resp.json()
             }
         })
         .then(json=>{
-            debugger//help with validation?
             UserApi.current_user_id = json.id
             document.querySelector("#navbar-login").remove()
             console.log(`Registation successful! User ID is ${UserApi.current_user_id}`)
@@ -183,12 +191,18 @@ class UserApi {
             navLinks().style = "--items: 2;"
             removeRegisterButton()
             correctNavLine()
+            this.handleRegistrationSuccess()
             document.querySelector("#login-overlay").innerHTML = ""
         })
-        .catch(err => {
-            debugger
-            this.handleError()
-        })
+        .catch(err => err.json().then(err =>{
+            if (err.email) {
+                this.handleError("Email " + err.email[0])
+            }
+            if (err.password) {
+                this.handleError("Password " + err.password[0])
+            }
+            
+        }))
 
         
     }
