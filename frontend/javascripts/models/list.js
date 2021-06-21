@@ -33,7 +33,6 @@ class List {
             }
         })
         .then(resp => {
-            debugger
             e.target.parentElement.remove()
             let list = List.findById(parseInt(e.target.dataset.list_id))
             let index = List.all.indexOf(list)
@@ -80,7 +79,6 @@ class List {
         <div class="outer-close">
         <a class="close"><span></span></a>
         </div>
-
             <h2 id="anime-table-name">My Lists</h2>
             <ul class="responsive-table" id="lists-table" style="left: 8%;width: 90%;position: absolute;">
                   <li class="table-header">
@@ -171,6 +169,4 @@ static handleListAddSuccess = () => {
         flash().classList.add("hide")
     }, 3000)
 }
-
-
 }

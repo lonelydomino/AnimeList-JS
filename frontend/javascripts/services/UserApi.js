@@ -43,27 +43,42 @@ class UserApi {
         fetch('http://localhost:3000/users')
         .then(resp => resp.json())
         .then(json => {
-            let found = json.find(element => UserApi.findUser(element.email, element.password)) 
-            if(found){
-                UserApi.current_user_id = found.id
-                document.querySelector("#navbar-login").remove()
-                console.log("Login successful!")
-                ListApi.fetchLists()
-                addListsButton()
-                addLogoutButton()  
-                UserApi.handleLoginSuccess()
-                navLinks().style = "--items: 2;"
-                removeRegisterButton()
-                correctNavLine()
-                document.querySelector("#login-overlay").innerHTML = ""
-            }
-            else {
-                UserApi.password = ""
-                UserApi.email = ""
-                UserApi.handleLoginFailure()
-                console.log("Login failed!")
-            }
+            let user = json.find(element => UserApi.findUser(element.email, element.password)) 
+            UserApi.userFound(user)
         })
+        .catch(this.handleError)
+    }
+    static handleError(error) {
+        debugger
+        flash().innerText = error
+        flash().classList.remove("hide")
+        flash().classList.add("flash-warning")
+        setTimeout(() => {
+            flash().innerText = ""
+            flash().classList.remove("flash-warning")
+            flash().classList.add("hide")
+        }, 3000)
+    }
+    static userFound(user){
+        if(user){
+            UserApi.current_user_id = user.id
+            document.querySelector("#navbar-login").remove()
+            console.log("Login successful!")
+            ListApi.fetchLists()
+            addListsButton()
+            addLogoutButton()  
+            UserApi.handleLoginSuccess()
+            navLinks().style = "--items: 2;"
+            removeRegisterButton()
+            correctNavLine()
+            document.querySelector("#login-overlay").innerHTML = ""
+        }
+        else {
+            UserApi.password = ""
+            UserApi.email = ""
+            UserApi.handleLoginFailure()
+            console.log("Login failed!")
+        }
     }
 
     static findUser(tempEmail, tempPassword) {
@@ -96,8 +111,7 @@ class UserApi {
       
     static logout() {
         UserApi.current_user_id = ""
-        // List.clearListsTable()
-        document.querySelector("#navbar-logout").remove()
+            document.querySelector("#navbar-logout").remove()
         document.querySelector("#navbar-lists").remove()
         Navigation.addLoginButton()
         Navigation.addRegisterButton()
@@ -150,9 +164,16 @@ class UserApi {
             },
             body: JSON.stringify(data)
         })
-        .then(resp => resp.json())
+        .then(resp => {
+            if (resp.ok) {
+                return resp.json();
+            } else {
+                debugger
+                return Promise.reject(resp.status);
+            }
+        })
         .then(json=>{
-            debugger
+            debugger//help with validation?
             UserApi.current_user_id = json.id
             document.querySelector("#navbar-login").remove()
             console.log(`Registation successful! User ID is ${UserApi.current_user_id}`)
@@ -163,8 +184,10 @@ class UserApi {
             removeRegisterButton()
             correctNavLine()
             document.querySelector("#login-overlay").innerHTML = ""
-            
-
+        })
+        .catch(err => {
+            debugger
+            this.handleError()
         })
 
         
