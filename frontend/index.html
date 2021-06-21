@@ -1,68 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="stylesheets/index.css">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <link rel="stylesheet" href="stylesheets/index.css">
+  </head>
 
-</head>
-
-<body>
-   
-      <button class="toggle-overlay">Toggle Me</button>
-      <header id="header">
-        <nav class="links" style="--items: 2;">
-            <a href="#" id="navbar-login" onclick="Navigation.openLoginOverlay(UserApi.showLogin)">Login</a>
-            <a href="#" id="register-button" onclick="Navigation.openRegistrationOverlay()">Register</a>
-            <span class="line"></span>
-        </nav>
-     </header>
-      
-      
-        <div class="hero">
-          <div id="content">
-            <div id="cover">
-                <form id="search-form">
-                  <div class="tb">
-                    <div class="td"><input id="search-query" type="text" autocomplete="off" name="search[query]" placeholder="Search" required></div>
-                    <div class="td" id="s-cover">
-                      <button id="search-butt" type="submit" onclick="handleSearch()">
-                        <div id="s-circle"></div>
-                        <span></span>
-                      </button>
-                    </div>
-                  </div>
-                </form>
+  <body>
+    <button class="toggle-overlay">Toggle Me</button>
+    <header id="header">
+      <nav class="links" style="--items: 2;">
+          <a href="#" id="navbar-login" onclick="Navigation.openLoginOverlay(UserApi.showLogin)">Login</a>
+          <a href="#" id="register-button" onclick="Navigation.openRegistrationOverlay()">Register</a>
+          <span class="line"></span>
+      </nav>
+    </header>
+        
+    <div class="hero">
+      <div id="content">
+        <div id="cover">
+            <form id="search-form">
+              <div class="tb">
+                <div class="td"><input id="search-query" type="text" autocomplete="off" name="search[query]" placeholder="Search" required></div>
+                <div class="td" id="s-cover">
+                  <button id="search-butt" type="submit" onclick="handleSearch()">
+                    <div id="s-circle"></div>
+                    <span></span>
+                  </button>
+                </div>
               </div>
-            <img id="logo" src="./assets/animelistlogo6.png">`
+            </form>
           </div>
-        </div>
-      <canvas id="bubble"></canvas>
+        <img id="logo" src="./assets/animelistlogo6.png">`
+      </div>
+    </div>
+    <canvas id="bubble"></canvas>
     <div id="flash" class="hide"></div>
     <div id="myOverlay" class="overlay">
         <span class="closebtn" onclick="closeAnimePage()" title="Close Overlay">×</span>
         <div class="overlay-content">
         </div>
     </div>
-
-    <div id="myNav" class="lists-overlay">
-    </div>
-    
     <div id="login-overlay">
     </div>
     </div>
     <div id="form-overlay">
     </div>
     <aside id="animes-window" style="z-index: 20;">
-     
     </aside>
-
     <aside2 id="lists-window">
-    
         <nav id="list-nav">
-          <!-- put content here -->
         </nav>
     </aside2>
     
@@ -78,8 +67,6 @@
     <script src="javascripts/services/AnimeApi.js"></script>
     <script src="javascripts/models/list.js"></script>
     <script src="javascripts/models/anime.js"></script>
-    <script src="javascripts/search.js"></script>
-</body>
+    <script src="javascripts/services/search.js"></script>
+  </body>
 </html>
-
-<!-- fix login close button and fade out when logged in -->

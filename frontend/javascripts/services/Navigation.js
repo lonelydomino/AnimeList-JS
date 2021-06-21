@@ -39,8 +39,5 @@ class Navigation {
     static closeLoginWindow = () => {
       document.querySelector("#login-overlay").innerHTML = ""
     }
-    // static showHome = () => {
-    //     contentDiv().innerHTML = `<img id="logo" src="./assets/animelistlogo6.png">`
-    // }
 
 }
