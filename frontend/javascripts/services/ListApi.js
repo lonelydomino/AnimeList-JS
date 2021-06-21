@@ -7,10 +7,17 @@ class ListApi {
         .then(json => json.forEach(listObj => {
             List.all << List.findOrCreateBy(listObj)
         }))
-        // .catch(i => {debugger})
+        .catch(this.handleError)
     }
     static handleError(error) {
-        
+        flash().innerText = error
+        flash().classList.remove("hide")
+        flash().classList.add("flash-error")
+        setTimeout(() => {
+            flash().innerText = ""
+            flash().classList.remove("flash-error")
+            flash().classList.add("hide")
+        }, 3000)
     }
     static currentUserLists() {
         let array = List.all.filter(element => {
@@ -18,23 +25,11 @@ class ListApi {
         })
         return array
     }
-    
-
-   
     static handleAnimeOverlay = () => {
-        // return function(){
-
-            // document.querySelector("#lists-window").style.visibility = "hidden"
             let list_id = parseInt(event.target.dataset.list_id)
             AnimeApi.createAnimeTable(List.findById(list_id).name)
             document.querySelector("aside").className = "open"
-            // document.querySelector(".outer-close2").addEventListener("click", function(){
-            //     document.querySelector("aside").className = "close"
-            //     document.querySelector("aside").innerHTML = ""
-            //     document.querySelector("#lists-window").style.visibility = "visible"
-            // })
             Anime.renderListAnimes(list_id)
-        // }
     }
   static currentListAnimes(id){
     let items = Anime.all.filter(element => element.list_id == id)
