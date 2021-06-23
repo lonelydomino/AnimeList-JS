@@ -100,12 +100,12 @@ class UserApi {
           <div class="title">Welcome!</div>
           <div class="subtitle">Log in here</div>
           <div class="input-container ic2">
-            <input id="email" class="input" type="text" placeholder=" " value="milo@gmail.com" />
+            <input id="email" class="input" type="text" placeholder=" " />
             <div class="cut"></div>
             <label for="email" class="placeholder">Email</label>
           </div>
           <div class="input-container ic2">
-            <input id="password" class="input" value="123456" type="password" placeholder=" " />
+            <input id="password" class="input" type="password" placeholder=" " />
             <div class="cut cut-short"></div>
             <label for="password" class="placeholder">Password</>
           </div>

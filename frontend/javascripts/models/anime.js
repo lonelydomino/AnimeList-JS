@@ -24,7 +24,9 @@ class Anime {
         return this.all.find(anime => anime.id === id)
     }
     static renderListAnimes = (id) => {
-        ListApi.currentListAnimes(id).forEach(anime => {
+        let sortedList = ListApi.currentListAnimes(id).sort((element1, element2) => element1.ep_count - element2.ep_count)
+        
+        sortedList.forEach(anime => {
             anime.render()
         });
     }

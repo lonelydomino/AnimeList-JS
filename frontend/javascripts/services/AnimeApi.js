@@ -79,7 +79,6 @@ static fetchAnimes(list_id) {
         document.querySelector("#animes-window").className = "close"
     }
     static handleDelete = (e) => {
-        // debugger
         return fetch(`http://localhost:3000/animes/${e.target.dataset.animeId}`, {
             method: 'DELETE',
             headers: {
@@ -87,7 +86,6 @@ static fetchAnimes(list_id) {
             }
         })
         .then(resp => {
-            debugger
             e.target.parentElement.remove()
             let anime = Anime.findById(parseInt(e.target.dataset.animeId))
             let index = Anime.all.indexOf(anime)

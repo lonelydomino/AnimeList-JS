@@ -30,7 +30,7 @@ class List {
     render() {
         let li = document.createElement("li")
         li.className = "table-row"
-
+        
         let tdListName = document.createElement("div")
         tdListName.className = "col col-2"
         tdListName.innerHTML = this.name
