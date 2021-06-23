@@ -30,7 +30,7 @@ class AnimeApi {
          },
          body: JSON.stringify(data)
          })
-        .then(() => this.handleAddSuccess())
+        .then(() => AnimeApi.handleAddSuccess())
     }
     }
 
@@ -79,13 +79,15 @@ static fetchAnimes(list_id) {
         document.querySelector("#animes-window").className = "close"
     }
     static handleDelete = (e) => {
-        fetch(`http://localhost:3000/animes/${e.target.dataset.animeId}`, {
+        // debugger
+        return fetch(`http://localhost:3000/animes/${e.target.dataset.animeId}`, {
             method: 'DELETE',
             headers: {
                 "Content-Type": 'application/json'
             }
         })
         .then(resp => {
+            debugger
             e.target.parentElement.remove()
             let anime = Anime.findById(parseInt(e.target.dataset.animeId))
             let index = Anime.all.indexOf(anime)
