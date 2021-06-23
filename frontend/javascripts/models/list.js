@@ -23,7 +23,7 @@ class List {
     }
 
     static findOrCreateBy(listObj) { 
-        return this.findByName(listObj.name) || new List(listObj)
+        return this.findById(listObj.id) || new List(listObj)
     }
     
 
@@ -141,7 +141,6 @@ static handleSubmitList = (event) => {
             List.handleListAddSuccess()
             document.querySelector("#add-lists-button").remove()
             list.render()
-            debugger
             List.addNewListsButton()
             listsForm().remove()
     })

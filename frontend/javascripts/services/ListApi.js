@@ -47,10 +47,10 @@ class ListApi {
         let list = List.findById(parseInt(e.target.dataset.list_id))
         let index = List.all.indexOf(list)
         List.all.splice(index, 1)
-        // debugger
         if(List.all.length === 0 && !addLists()){
             List.addNewListsButton()
         }
+        this.fetchLists()
     }
     )
 }
