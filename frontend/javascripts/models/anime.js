@@ -36,25 +36,12 @@ class Anime {
             <div class="col col-1"><img src="${this.image}" width="50" height="60"></div>
             <div class="col col-2">${this.name}</div>
             <div class="col col-3">${this.ep_count}</div>
-            <div class="col col-4" onclick="Anime.handleDelete(event)" data-anime-id="${this.id}" style="color:red; cursor: pointer;">X</div>
+            <div class="col col-4" data-anime-id="${this.id}" style="color:red; cursor: pointer;">X</div>
         `
         document.querySelector(".responsive-table").appendChild(li)
+        document.querySelector(".table-row .col.col-4").addEventListener("click", AnimeApi.handleDelete)
     }
-    static handleDelete = (e) => {
-        fetch(`http://localhost:3000/animes/${e.target.dataset.animeId}`, {
-            method: 'DELETE',
-            headers: {
-                "Content-Type": 'application/json'
-            }
-        })
-        .then(resp => {
-            e.target.parentElement.remove()
-            let anime = Anime.findById(parseInt(e.target.dataset.animeId))
-            let index = Anime.all.indexOf(anime)
-            Anime.all.splice(index, 1)
-        }
-        )
-    }
+    
     
 
 }

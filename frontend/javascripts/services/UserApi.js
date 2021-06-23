@@ -70,32 +70,28 @@ class UserApi {
     }
     static userFound(user){
         if(user){
-            UserApi.current_user_id = user.id
+            this.current_user_id = user.id
             document.querySelector("#navbar-login").remove()
             console.log("Login successful!")
             ListApi.fetchLists()
             addListsButton()
             addLogoutButton()  
-            UserApi.handleLoginSuccess()
+            this.handleLoginSuccess()
             navLinks().style = "--items: 2;"
             removeRegisterButton()
             correctNavLine()
             document.querySelector("#login-overlay").innerHTML = ""
         }
         else {
-            UserApi.password = ""
-            UserApi.email = ""
-            UserApi.handleLoginFailure()
+            this.password = ""
+            this.email = ""
+            this.handleLoginFailure()
             console.log("Login failed!")
         }
     }
 
     static findUser(tempEmail, tempPassword) {
-        if (tempEmail === UserApi.email && tempPassword === UserApi.password){
-            return true
-         } else{
-            return false
-        }
+        return (tempEmail === UserApi.email && tempPassword === UserApi.password)
     }
     static showLogin = () => {
         document.querySelector("#login-overlay").innerHTML = `
@@ -118,14 +114,14 @@ class UserApi {
         document.querySelector(".submit-login").addEventListener("click", UserApi.fetchUsers)
     }
       
-    static logout() {
+    static logout = () => {
         UserApi.current_user_id = ""
             document.querySelector("#navbar-logout").remove()
         document.querySelector("#navbar-lists").remove()
         Navigation.addLoginButton()
         Navigation.addRegisterButton()
         correctNavLine()
-        UserApi.handleLogoutNotification()
+        this.handleLogoutNotification()
     }
 
     static showRegistration = () => {
@@ -182,7 +178,7 @@ class UserApi {
             }
         })
         .then(json=>{
-            UserApi.current_user_id = json.id
+            this.current_user_id = json.id
             document.querySelector("#navbar-login").remove()
             console.log(`Registation successful! User ID is ${UserApi.current_user_id}`)
             ListApi.fetchLists()

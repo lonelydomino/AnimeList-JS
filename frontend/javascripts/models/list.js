@@ -25,21 +25,7 @@ class List {
     static findOrCreateBy(listObj) { 
         return this.findByName(listObj.name) || new List(listObj)
     }
-    static handleDelete = (e) => {
-        fetch(`http://localhost:3000/lists/${e.target.dataset.list_id}`, {
-            method: 'DELETE',
-            headers: {
-                "Content-Type": 'application/json'
-            }
-        })
-        .then(resp => {
-            e.target.parentElement.remove()
-            let list = List.findById(parseInt(e.target.dataset.list_id))
-            let index = List.all.indexOf(list)
-            List.all.splice(index, 1)
-        }
-        )
-    }
+    
 
     render() {
         let li = document.createElement("li")
@@ -60,7 +46,7 @@ class List {
         tdX.className = "col col-4"
         tdX.innerHTML = "X"
         tdX.style.cursor = "pointer"
-        tdX.addEventListener("click", List.handleDelete)
+        tdX.addEventListener("click", ListApi.handleDelete)
         tdX.dataset.list_id = this.id
         
         AnimeApi.fetchAnimes(this.id)
@@ -101,7 +87,7 @@ static showLists = () => {
     userList.forEach(element => {
         element.render()
     });
-+    List.addNewListsButton()
+    List.addNewListsButton()
 }
 
 static addNewListsButton = () => {
@@ -155,6 +141,7 @@ static handleSubmitList = (event) => {
             List.handleListAddSuccess()
             document.querySelector("#add-lists-button").remove()
             list.render()
+            debugger
             List.addNewListsButton()
             listsForm().remove()
     })

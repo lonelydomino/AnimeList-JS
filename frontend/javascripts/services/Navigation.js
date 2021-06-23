@@ -2,7 +2,7 @@ class Navigation {
     static addLoginButton = () => {
         let a = document.createElement("a")
         a.id = "navbar-login"
-        a.onclick = Navigation.openLoginOverlay
+        a.onclick = this.openLoginOverlay
         a.innerHTML = `Login`
         a.style.cursor = "pointer"
         document.querySelector(".links").appendChild(a)
@@ -18,7 +18,7 @@ class Navigation {
         button.id = "register-button"
         button.innerHTML = "Register"
         button.style.cursor = "pointer"
-        button.onclick = Navigation.openRegistrationOverlay
+        button.onclick = this.openRegistrationOverlay
         navLinks().appendChild(button)    
     }
     static openRegistrationOverlay = () => {
@@ -37,7 +37,7 @@ class Navigation {
         document.querySelector("#form-overlay").innerHTML = ""
     }
     static closeLoginWindow = () => {
-      document.querySelector("#login-overlay").innerHTML = ""
+        document.querySelector("#login-overlay").innerHTML = ""
     }
 
 }

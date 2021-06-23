@@ -35,5 +35,24 @@ class ListApi {
     let items = Anime.all.filter(element => element.list_id == id)
     return items
   }
+  static handleDelete = (e) => {
+    fetch(`http://localhost:3000/lists/${e.target.dataset.list_id}`, {
+        method: 'DELETE',
+        headers: {
+            "Content-Type": 'application/json'
+        }
+    })
+    .then(resp => {
+        e.target.parentElement.remove()
+        let list = List.findById(parseInt(e.target.dataset.list_id))
+        let index = List.all.indexOf(list)
+        List.all.splice(index, 1)
+        // debugger
+        if(List.all.length === 0 && !addLists()){
+            List.addNewListsButton()
+        }
+    }
+    )
+}
 }
 
